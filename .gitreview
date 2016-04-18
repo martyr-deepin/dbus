@@ -1,0 +1,5 @@
+[gerrit]
+host=cr.deepin.io
+port=29418
+project=autotest/dbus
+defaultbranch=master
