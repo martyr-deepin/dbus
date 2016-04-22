@@ -28,6 +28,15 @@ class testSessionBusDesktop(unittest.TestCase):
 																				False,0,1)
 		print ActivateFileWithTimestamp
 		'''
+		GenMenuContent = self.session_if.GenMenuContent((u"/home/deepin1208/桌面/deepin-movie.desktop",
+															u"/home/deepin1208/桌面/all.py"))
+		self.assertIsNotNone(GenMenuContent)
+		print GenMenuContent
+		
+		# 1:打开 2:压缩 3：剪切 4：复制 5：没有 6：删除 7：属性
+		HandleSelectedMenuItem = self.session_if.HandleSelectedMenuItem("2")
+		print HandleSelectedMenuItem
+
 
 def suite():
 	suite = unittest.TestSuite()
