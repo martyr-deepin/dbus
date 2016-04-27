@@ -25,12 +25,14 @@ class testddedockDockSetting(unittest.TestCase):
     @classmethod
     def tearDownClass(cls):
         cls.session_iface.SetHideMode(cls.default_HideMode)
+        cls.session_iface.SetDisplayMode(cls.default_DisplayMode)
 
     def setUp(self):
         pass
 
     def tearDown(self):
-        pass
+        self.session_iface.SetDisplayMode(self.default_DisplayMode)
+        self.session_iface.SetHideMode(self.default_HideMode)
 
     def testddedockDockSettingHideMode(self):
         hidenum = self.session_iface.GetHideMode()
@@ -48,23 +50,51 @@ class testddedockDockSetting(unittest.TestCase):
         self.assertTrue(tf_result)
         self.assertEqual(self.session_iface.GetHideMode(), 0)
 
-    def testddedockDockSettingHideModeFalse(self):
-        hidenum = self.session_iface.GetHideMode()
+    def testddedockDockSettingHideModeFalse_one(self):
         tf_result = self.session_iface.SetHideMode(-1)
         self.assertFalse(tf_result)
-        self.assertEqual(self.session_iface.GetHideMode(), hidenum)
+        self.assertEqual(self.session_iface.GetHideMode(), self.default_HideMode)
+
+    def testddedockDockSettingHideModeFalse_two(self):
         tf_result = self.session_iface.SetHideMode(4)
         self.assertFalse(tf_result)
-        self.assertEqual(self.session_iface.GetHideMode(), hidenum)
+        self.assertEqual(self.session_iface.GetHideMode(), self.default_HideMode)
+
+    def testddedockDockSettingHideModeFalse_three(self):
         tf_result = self.session_iface.SetHideMode(4000)
         self.assertFalse(tf_result)
-        self.assertEqual(self.session_iface.GetHideMode(), hidenum)
+        self.assertEqual(self.session_iface.GetHideMode(), self.default_HideMode)
 
+    def testddedockDockSettingDisplayMode(self):
+        tf_result = self.session_iface.SetDisplayMode(1)
+        self.assertTrue(tf_result)
+        self.assertEqual(self.session_iface.GetDisplayMode(), 1)
+        tf_result = self.session_iface.SetDisplayMode(2)
+        self.assertTrue(tf_result)
+        self.assertEqual(self.session_iface.GetDisplayMode(), 2)
+        tf_result = self.session_iface.SetDisplayMode(0)
+        self.assertTrue(tf_result)
+        self.assertEqual(self.session_iface.GetDisplayMode(), 0)
+
+    def testddedockDockSettingDisplayModeFalse_one(self):
+        tf_result = self.session_iface.SetDisplayMode(-1)
+        self.assertFalse(tf_result)
+        self.assertEqual(self.session_iface.GetDisplayMode(), self.default_DisplayMode)
+
+    def testddedockDockSettingDisplayModeFalse_two(self):
+        tf_result = self.session_iface.SetDisplayMode(3)
+        self.assertFalse(tf_result)
+        self.assertEqual(self.session_iface.GetDisplayMode(), self.default_DisplayMode)
 
 def suite():
     suite = unittest.TestSuite()
     suite.addTest(testddedockDockSetting('testddedockDockSettingHideMode'))
-    suite.addTest(testddedockDockSetting('testddedockDockSettingHideModeFalse'))
+    suite.addTest(testddedockDockSetting('testddedockDockSettingHideModeFalse_one'))
+    suite.addTest(testddedockDockSetting('testddedockDockSettingHideModeFalse_two'))
+    suite.addTest(testddedockDockSetting('testddedockDockSettingHideModeFalse_three'))
+    suite.addTest(testddedockDockSetting('testddedockDockSettingDisplayMode'))
+    suite.addTest(testddedockDockSetting('testddedockDockSettingDisplayModeFalse_one'))
+    suite.addTest(testddedockDockSetting('testddedockDockSettingDisplayModeFalse_two'))
     return suite
 
 
