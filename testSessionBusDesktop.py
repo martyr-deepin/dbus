@@ -8,7 +8,6 @@ import commands
 import time 
 import pyautogui
 import json
-import pprint
 import sys
 
 reload(sys)
@@ -73,16 +72,17 @@ class testSessionBusDesktop(unittest.TestCase):
 		GenMenuContent = json.JSONDecoder().decode(GenMenuContent)
 
 		print json.dumps(GenMenuContent,indent=4,ensure_ascii=False)
-
+		
 		ActivateFileWithTimestamp = self.session_if.ActivateFileWithTimestamp(self.user_desktop_dir+"/b.txt",("a.txt","b.txt"),\
 																				False,0,2)
 		time.sleep (5)
 		HandleSelectedMenuItem = self.session_if.HandleSelectedMenuItem("11")
 
 		time.sleep (5)
-
+		
 		
 	def testAppGroup(self):
+		
 		#send deepin-feedback deepin-movie eog to desktop
 		feedback = self.session_if2.RequestSendToDesktop('deepin-feedback')
 		time.sleep (5)
@@ -116,6 +116,22 @@ class testSessionBusDesktop(unittest.TestCase):
 		self.assertIsNone(mergeappgroup)
 		time.sleep (5)
 		
+
+		IsAppGroup = self.session_if.IsAppGroup(self.user_desktop_appgroup)
+		print "%s is AppGroup: %d "% (self.user_desktop_appgroup,IsAppGroup)
+
+		GetDesktopItems = self.session_if.GetDesktopItems()
+		print "GetDesktopItems----------------------\n"
+		print json.dumps(GetDesktopItems,indent=4,ensure_ascii=False)
+		
+		GetAppGroupItems = self.session_if.GetAppGroupItems(self.appgroup_dir)
+		print "GetAppGroupItems----------------------\n"
+		print json.dumps(GetAppGroupItems,indent=4,ensure_ascii=False)
+		
+		GetItemInfo = self.session_if.GetItemInfo(self.appgroup_dir)
+		print "GetItemInfo----------------------\n"
+		print json.dumps(GetItemInfo,indent=4,ensure_ascii=False)
+
 def suite():
 	suite = unittest.TestSuite()
 	suite.addTest(testSessionBusDesktop('testMenuContent'))
