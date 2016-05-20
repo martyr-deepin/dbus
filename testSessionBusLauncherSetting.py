@@ -4,7 +4,7 @@
 import unittest 
 import dbus
 import time
-import pyautogui
+
 
 class testSessionBusLauncherSetting(unittest.TestCase):
 	@classmethod
@@ -25,10 +25,7 @@ class testSessionBusLauncherSetting(unittest.TestCase):
 			time.sleep (2)
 			sortmethod = self.session_if.SetSortMethod(x)
 			print self.session_if.GetSortMethod()
-			time.sleep (8)
-			pyautogui.press('winleft')
-			time.sleep (2)
-			pyautogui.press('esc')
+			self.assertEqual(self.session_if.GetSortMethod(),x)
 			
 	@classmethod
 	def tearDownClass(cl):

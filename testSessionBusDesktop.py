@@ -9,6 +9,7 @@ import time
 import pyautogui
 import json
 import sys
+import urllib
 
 reload(sys)
 
@@ -49,13 +50,13 @@ class testSessionBusDesktop(unittest.TestCase):
 		
 		cl.status1,cl.output1 = commands.getstatusoutput("rm -f "+cl.user_desktop_dir+"/*")
 		cl.status2,cl.output2 = commands.getstatusoutput("rm -rf "+cl.user_desktop_dir+"/.deepin_rich_dir_*")
-		
+		'''
 		time.sleep (2)
 		pyautogui.hotkey('alt','f4')
 		
 		time.sleep (5)
 		pyautogui.hotkey('alt','f4')
-		
+		'''
 		
 
 	def testMenuContent(self):
@@ -67,19 +68,20 @@ class testSessionBusDesktop(unittest.TestCase):
 
 		else:
 			print "E: a.txt and b.txt didn't exist"
-		print GenMenuContent
+		#print GenMenuContent
 		
 		GenMenuContent = json.JSONDecoder().decode(GenMenuContent)
 
 		print json.dumps(GenMenuContent,indent=4,ensure_ascii=False)
-		
+		'''
 		ActivateFileWithTimestamp = self.session_if.ActivateFileWithTimestamp(self.user_desktop_dir+"/b.txt",("a.txt","b.txt"),\
-																				False,0,2)
+																			False,0,2)
+		
 		time.sleep (5)
 		HandleSelectedMenuItem = self.session_if.HandleSelectedMenuItem("11")
 
 		time.sleep (5)
-		
+		'''
 		
 	def testAppGroup(self):
 		
@@ -106,12 +108,16 @@ class testSessionBusDesktop(unittest.TestCase):
 														&& ls -ahl $XDG_DESKTOP_DIR |grep .deepin_rich_dir_'")\
 														.decode("utf-8").split("\n")
 		self.user_desktop_appgroup = [n for n in self.user_desktop_appgroup if len(n.strip()) > 0]
-		#self.user_desktop_appgroup = str(self.user_desktop_appgroup).replace('u\'','\'').decode("unicode-escape")
 		self.user_desktop_appgroup = "".join(self.user_desktop_appgroup)
-		self.user_desktop_appgroup = self.user_desktop_appgroup.split("  ")[2].split(" ")[2]
+		self.user_desktop_appgroup = str(self.user_desktop_appgroup).replace('u\'','\'').decode("unicode-escape")
+		print self.user_desktop_appgroup
+		self.user_desktop_appgroup = self.user_desktop_appgroup.split("  ")[1].split(" ")[7:]
+		self.user_desktop_appgroup = " ".join(self.user_desktop_appgroup)
+		self.user_desktop_appgroup = str(self.user_desktop_appgroup).replace('u\'','\'').decode("unicode-escape")
 		print "AppGroup name is:%s\n" % self.user_desktop_appgroup
 		#merge eog into AppGroup
 		self.appgroup_dir = "%s/%s" % (self.user_desktop_dir,self.user_desktop_appgroup)
+		print "appgroup_dir is:%s\n" % self.appgroup_dir
 		mergeappgroup = self.session_if.RequestMergeIntoAppGroup((self.user_desktop_dir+"/eog.desktop",self.appgroup_dir),self.appgroup_dir)
 		self.assertIsNone(mergeappgroup)
 		time.sleep (5)
