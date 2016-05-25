@@ -6,7 +6,6 @@ import dbus
 import os
 import commands
 import time 
-import pyautogui
 import json
 import sys
 import urllib

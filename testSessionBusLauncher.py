@@ -5,7 +5,7 @@ import unittest
 import dbus
 import time
 import commands
-import pexpect
+#import pexpect
 import os
 
 mypassword = 'a'
@@ -19,7 +19,7 @@ class testSessionBusLauncher(unittest.TestCase):
 													'/com/deepin/dde/daemon/Launcher')
 		self.session_if1 = dbus.Interface(self.session_obj1,dbus_interface='com.deepin.dde.daemon.Launcher')
 
-
+	'''
 	def tearDown(self):
 		self.output = pexpect.spawn('sudo apt-get install -y deepin-movie')
 		self.output.expect('sudo')  
@@ -32,7 +32,7 @@ class testSessionBusLauncher(unittest.TestCase):
 		else:
 			self.install = commands.getoutput('aptitude show deepin-movie |awk \'/状态/{print $2}\'')
 			self.assertEqual(self.install,'已安装')
-
+	'''
 
 	#precondition:need install xmind from deepin-appstore
 	def testComDeepinDdeDaemonLauncher(self):
