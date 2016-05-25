@@ -8,8 +8,7 @@ import commands
 #import pexpect
 import os
 
-mypassword = 'a'
-language = os.environ['LANGUAGE']
+
 
 class testSessionBusLauncher(unittest.TestCase):
 
