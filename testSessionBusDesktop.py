@@ -19,9 +19,9 @@ class testSessionBusDesktop(unittest.TestCase):
 	@classmethod
 	def setUpClass(cl):
 		cl.session_bus = dbus.SessionBus()
-		cl.session_obj = cl.session_bus.get_object('com.deepin.dde.daemon.Desktop',
+		cl.session_obj = cl.session_bus.get_object('com.deepin.dde.daemon.Desktop', \
 													'/com/deepin/dde/daemon/Desktop')
-		cl.session_obj2 = cl.session_bus.get_object('com.deepin.dde.daemon.Launcher',
+		cl.session_obj2 = cl.session_bus.get_object('com.deepin.dde.daemon.Launcher', \
 													'/com/deepin/dde/daemon/Launcher')
 		cl.session_if = dbus.Interface(cl.session_obj,dbus_interface='com.deepin.dde.daemon.Desktop')
 		cl.session_if2 = dbus.Interface(cl.session_obj2,dbus_interface='com.deepin.dde.daemon.Launcher')

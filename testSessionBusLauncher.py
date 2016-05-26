@@ -4,17 +4,17 @@
 import unittest 
 import dbus
 import time
-import commands
+#import commands
 #import pexpect
-import os
+#import os
 
 
 
 class testSessionBusLauncher(unittest.TestCase):
-
+	
 	def setUp(self):
 		self.session_bus = dbus.SessionBus()
-		self.session_obj1 = self.session_bus.get_object('com.deepin.dde.daemon.Launcher',
+		self.session_obj1 = self.session_bus.get_object('com.deepin.dde.daemon.Launcher', \
 													'/com/deepin/dde/daemon/Launcher')
 		self.session_if1 = dbus.Interface(self.session_obj1,dbus_interface='com.deepin.dde.daemon.Launcher')
 
