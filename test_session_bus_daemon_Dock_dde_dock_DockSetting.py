@@ -16,10 +16,7 @@ class testddedockDockSetting(unittest.TestCase):
         cls.session_bus = dbus.SessionBus()
         cls.session_obj = cls.session_bus.get_object('com.deepin.daemon.Dock', '/dde/dock/DockSetting')
         cls.session_iface = dbus.Interface(cls.session_obj, dbus_interface='dde.dock.DockSetting')
-        cls.default_ClockType = cls.session_iface.GetClockType()
-        cls.default_DisplayDate = cls.session_iface.GetDisplayDate()
         cls.default_DisplayMode = cls.session_iface.GetDisplayMode()
-        cls.default_DisplayWeek = cls.session_iface.GetDisplayWeek()
         cls.default_HideMode = cls.session_iface.GetHideMode()
 
     @classmethod
@@ -40,9 +37,6 @@ class testddedockDockSetting(unittest.TestCase):
         tf_result = self.session_iface.SetHideMode(1)
         self.assertTrue(tf_result)
         self.assertEqual(self.session_iface.GetHideMode(), 1)
-        tf_result = self.session_iface.SetHideMode(2)
-        self.assertTrue(tf_result)
-        self.assertEqual(self.session_iface.GetHideMode(), 2)
         tf_result = self.session_iface.SetHideMode(3)
         self.assertTrue(tf_result)
         self.assertEqual(self.session_iface.GetHideMode(), 3)
@@ -61,7 +55,7 @@ class testddedockDockSetting(unittest.TestCase):
         self.assertEqual(self.session_iface.GetHideMode(), self.default_HideMode)
 
     def testddedockDockSettingHideModeFalse_three(self):
-        tf_result = self.session_iface.SetHideMode(4000)
+        tf_result = self.session_iface.SetHideMode(2)
         self.assertFalse(tf_result)
         self.assertEqual(self.session_iface.GetHideMode(), self.default_HideMode)
 
