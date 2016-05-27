@@ -10,18 +10,18 @@ import os
 
 mypassword = 'a'
 def rmlock1():
-	if os.path.exists('/var/cache/apt/archives/lock'):
-		output = pexpect.spawn('sudo rm -f /var/cache/apt/archives/lock')
-		output.expect('sudo')  
-		output.sendline(mypassword)  
-		output.interact()
+
+	output = pexpect.spawn('sudo rm -f /var/cache/apt/archives/lock')
+	output.expect('sudo')  
+	output.sendline(mypassword)  
+	output.interact()
 
 def rmlock2():
-	if os.path.exists('/var/lib/dpkg/lock'):
-		output = pexpect.spawn('sudo rm -f /var/lib/dpkg/lock')
-		output.expect('sudo')  
-		output.sendline(mypassword)  
-		output.interact()
+
+	output = pexpect.spawn('sudo rm -f /var/lib/dpkg/lock')
+	output.expect('sudo')  
+	output.sendline(mypassword)  
+	output.interact()
 
 class testSessionBusLauncher(unittest.TestCase):
 	
@@ -33,9 +33,10 @@ class testSessionBusLauncher(unittest.TestCase):
 
 	
 	def tearDown(self):
-
-		rmlock1()
-		rmlock2()
+		if os.path.exists('/var/cache/apt/archives/lock'):
+			rmlock1()
+		if os.path.exists('/var/lib/dpkg/lock'):
+			rmlock2()
 		output = pexpect.spawn('sudo apt-get install -y deepin-movie')
 		output.expect('sudo')  
 		output.sendline(mypassword)  
