@@ -27,19 +27,19 @@ class testSessionBusDesktop(unittest.TestCase):
 		cl.session_if2 = dbus.Interface(cl.session_obj2,dbus_interface='com.deepin.dde.daemon.Launcher')
 
 		cl.usr_home = os.path.expanduser('~')
-		print "User home dir:%s\n" % cl.usr_home
+		print "User home dir:%s\n" % cl.usr_home.encode()
 		cl.user_desktop_dir = commands.getoutput("bash -c 'source ~/.config/user-dirs.dirs \
 														&& echo $XDG_DESKTOP_DIR'").decode("utf-8").split("\n")
 		cl.user_desktop_dir = [n for n in cl.user_desktop_dir if len(n.strip()) > 0]
 		cl.user_desktop_dir = "".join(cl.user_desktop_dir)
-		print "User desktop dir:%s\n" % cl.user_desktop_dir
+		print "User desktop dir:%s\n" % cl.user_desktop_dir.encode()
 		
-		cl.touch_a = "touch %s/a.txt" % cl.user_desktop_dir
-		cl.touch_b = "touch %s/b.txt" % cl.user_desktop_dir
+		cl.touch_a = "touch %s/a.txt" % cl.user_desktop_dir.encode()
+		cl.touch_b = "touch %s/b.txt" % cl.user_desktop_dir.encode()
 		cl.output1 = commands.getoutput(cl.touch_a)
 		cl.output2 = commands.getoutput(cl.touch_b)
-		cl.a_path = "%s/a.txt" % cl.user_desktop_dir
-		cl.b_path = "%s/b.txt" % cl.user_desktop_dir
+		cl.a_path = "%s/a.txt" % cl.user_desktop_dir.encode()
+		cl.b_path = "%s/b.txt" % cl.user_desktop_dir.encode()
 		time.sleep (2)
 		
 
@@ -64,14 +64,15 @@ class testSessionBusDesktop(unittest.TestCase):
 			GenMenuContent = self.session_if.GenMenuContent((self.a_path,
 															self.b_path))
 			self.assertIsNotNone(GenMenuContent)
+			GenMenuContent = json.JSONDecoder().decode(GenMenuContent)
+
+			print json.dumps(GenMenuContent,indent=4,ensure_ascii=False)
 
 		else:
 			print "E: a.txt and b.txt didn't exist"
 		#print GenMenuContent
 		
-		GenMenuContent = json.JSONDecoder().decode(GenMenuContent)
-
-		print json.dumps(GenMenuContent,indent=4,ensure_ascii=False)
+		
 		'''
 		ActivateFileWithTimestamp = self.session_if.ActivateFileWithTimestamp(self.user_desktop_dir+"/b.txt",("a.txt","b.txt"),\
 																			False,0,2)

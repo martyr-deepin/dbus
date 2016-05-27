@@ -3,17 +3,26 @@
 
 import unittest
 import sys
+import commands
 import test_session_bus_daemon_Dock_dde_dock_DockSetting
-import testSessionBusDesktop
-import testSessionBusLauncher
-import testSessionBusLauncherSetting
-
 
 suite1 = test_session_bus_daemon_Dock_dde_dock_DockSetting.suite()
-suite2 = testSessionBusLauncher.suite()
-suite3 = testSessionBusDesktop.suite()
-suite4 = testSessionBusLauncherSetting.suite()
-alltests = unittest.TestSuite((suite1,suite2,suite3,suite4))
+
+
+home = commands.getoutput('ls /home')
+
+if home:
+	print "in Physical machine"
+	import testSessionBusDesktop
+	import testSessionBusLauncher
+	import testSessionBusLauncherSetting
+	suite2 = testSessionBusLauncher.suite()
+	suite3 = testSessionBusDesktop.suite()
+	suite4 = testSessionBusLauncherSetting.suite()
+	alltests = unittest.TestSuite((suite1,suite2,suite3,suite4))
+else:
+	print "in docker"
+	alltests = unittest.TestSuite((suite1))
 
 # 执行测试
 def main(out=sys.stderr, verbosity=2):
