@@ -59,6 +59,16 @@ class testddedockDockSetting(unittest.TestCase):
         self.assertFalse(tf_result)
         self.assertEqual(self.session_iface.GetHideMode(), self.default_HideMode)
 
+    def testddedockDockSettingHideModeFalse_four(self):
+        tf_result = self.session_iface.SetHideMode(-5)
+        self.assertFalse(tf_result)
+        self.assertEqual(self.session_iface.GetHideMode(), self.default_HideMode)
+
+    def testddedockDockSettingHideModeFalse_five(self):
+        tf_result = self.session_iface.SetHideMode(9)
+        self.assertFalse(tf_result)
+        self.assertEqual(self.session_iface.GetHideMode(), self.default_HideMode)
+
     def testddedockDockSettingDisplayMode(self):
         tf_result = self.session_iface.SetDisplayMode(1)
         self.assertTrue(tf_result)
@@ -80,15 +90,29 @@ class testddedockDockSetting(unittest.TestCase):
         self.assertFalse(tf_result)
         self.assertEqual(self.session_iface.GetDisplayMode(), self.default_DisplayMode)
 
+    def testddedockDockSettingDisplayModeFalse_three(self):
+        tf_result = self.session_iface.SetDisplayMode(-5)
+        self.assertFalse(tf_result)
+        self.assertEqual(self.session_iface.GetDisplayMode(), self.default_DisplayMode)
+
+    def testddedockDockSettingDisplayModeFalse_four(self):
+        tf_result = self.session_iface.SetDisplayMode(9)
+        self.assertFalse(tf_result)
+        self.assertEqual(self.session_iface.GetDisplayMode(), self.default_DisplayMode)
+
 def suite():
     suite = unittest.TestSuite()
     suite.addTest(testddedockDockSetting('testddedockDockSettingHideMode'))
     suite.addTest(testddedockDockSetting('testddedockDockSettingHideModeFalse_one'))
     suite.addTest(testddedockDockSetting('testddedockDockSettingHideModeFalse_two'))
     suite.addTest(testddedockDockSetting('testddedockDockSettingHideModeFalse_three'))
+    suite.addTest(testddedockDockSetting('testddedockDockSettingHideModeFalse_four'))
+    suite.addTest(testddedockDockSetting('testddedockDockSettingHideModeFalse_five'))
     suite.addTest(testddedockDockSetting('testddedockDockSettingDisplayMode'))
     suite.addTest(testddedockDockSetting('testddedockDockSettingDisplayModeFalse_one'))
     suite.addTest(testddedockDockSetting('testddedockDockSettingDisplayModeFalse_two'))
+    suite.addTest(testddedockDockSetting('testddedockDockSettingDisplayModeFalse_three'))
+    suite.addTest(testddedockDockSetting('testddedockDockSettingDisplayModeFalse_four'))
     return suite
 
 
