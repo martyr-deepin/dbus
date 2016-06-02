@@ -5,9 +5,9 @@ import unittest
 import dbus
 import time
 import commands
-import pexpect
+#import pexpect
 import os
-
+'''
 mypassword = 'a'
 def rmlock1():
 
@@ -22,7 +22,7 @@ def rmlock2():
 	output.expect('sudo')  
 	output.sendline(mypassword)  
 	output.interact()
-
+'''
 class testSessionBusLauncher(unittest.TestCase):
 	
 	
@@ -31,7 +31,7 @@ class testSessionBusLauncher(unittest.TestCase):
 		self.session_obj = self.session_bus.get_object('com.deepin.dde.daemon.Launcher', '/com/deepin/dde/daemon/Launcher')
 		self.session_if = dbus.Interface(self.session_obj,dbus_interface='com.deepin.dde.daemon.Launcher')
 
-	
+	'''
 	def tearDown(self):
 		if os.path.exists('/var/cache/apt/archives/lock'):
 			rmlock1()
@@ -51,7 +51,7 @@ class testSessionBusLauncher(unittest.TestCase):
 		else:
 			install = commands.getoutput('aptitude show deepin-movie |awk \'/状态/{print $2}\'')
 			self.assertEqual(install,'已安装')
-	
+	'''
 	
 
 	#precondition:need install xmind from deepin-appstore
