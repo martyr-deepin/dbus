@@ -1,0 +1,4 @@
+### dbus接口说明
+-  键盘布局：com.deepin.daemon.InputDevice.Keyboard
+-  屏幕相关：com.deepin.daemon.Display
+-  声音   ： com.deepin.daemon.Audio.Sink
