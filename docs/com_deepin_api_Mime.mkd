@@ -1,0 +1,64 @@
+# /com/deepin/api/Manager
+***
+## Interfaces
+***
+### com.deepin.api/Manager
+***
+#### Methods
+***
+
+- func (m *Manager) AddUserApp(mimes []string, desktopId string) error
+> None
+
+- func (m *Manager) DeleteUserApp(desktopId string) error
+> None
+
+- func (m *Manager) GetDefaultApp(ty string) (string, error)
+> None
+
+- func (m *Manager) ListApps(ty string) string
+> None
+
+- func (m *Manager) ListUserApps(ty string) string
+> None
+
+- func (m *Manager) Reset()
+> None
+
+***
+#### Signals
+***
+
+- Change
+
+
+
+***
+# /com/deepin/api/Media
+***
+## Interfaces
+***
+### com.deepin.api.Media
+***
+#### Methods
+***
+
+- func (media *Media) EnableAutoOpen(enabled bool)
+> None
+
+- func (media *Media) GetDefaultApp(ty string) (string, error)
+> None
+
+- func (media *Media) ListApps(ty string) string
+> None
+
+- func (media *Media) Reset()
+> None
+
+***
+#### Properties
+***
+
+- Boolean AutoOpen (read)
+> None
+
