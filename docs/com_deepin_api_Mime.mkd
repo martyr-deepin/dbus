@@ -14,10 +14,10 @@
 > None
 
 - func (m *Manager) GetDefaultApp(ty string) (string, error)
-> None
+> 返回值：{"Id":"google-chrome.desktop","Name":"Google Chrome","DisplayName":"网页浏览器","Description":"访问互联网","Icon":"google-chrome","Exec":"/usr/bin/google-chrome-stable %U"}
 
 - func (m *Manager) ListApps(ty string) string
-> None
+> 返回值：[{"Id":"firefox.desktop","Name":"Firefox","DisplayName":"Web Browser","Description":"Browse the World Wide Web","Icon":"firefox","Exec":"firefox %u"},{"Id":"google-chrome.desktop","Name":"Google Chrome","DisplayName":"网页浏览器","Description":"访问互联网","Icon":"google-chrome","Exec":"/usr/bin/google-chrome-stable %U"}]
 
 - func (m *Manager) ListUserApps(ty string) string
 > None
