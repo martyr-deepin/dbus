@@ -1,0 +1,174 @@
+***
+# /com/deepin/daemon/Accounts
+***
+## Interfaces
+***
+### com.deepin.daemon.Accounts
+***
+#### Methods
+***
+
+- func (m *Manager) AllowGuestAccount(dbusMsg dbus.DMessage, allow bool) error
+> None
+
+- func (m *Manager) CreateGuestAccount() (string, error)
+> None
+
+- func (m *Manager) CreateUser(dbusMsg dbus.DMessage,
+        name, fullname string, ty int32) error
+> None
+
+- func (m *Manager) DeleteUser(dbusMsg dbus.DMessage,
+        name string, rmFiles bool) error
+> None
+
+- func (m *Manager) FindUserById(uid string) (string, error)
+> None
+
+- func (m *Manager) FindUserByName(name string) (string, error)
+> None
+
+- func (m *Manager) RandUserIcon() (string, error)
+> None
+
+- func (m *Manager) IsUsernameValid(name string) (bool, string, int32)
+> None
+
+- func (m *Manager) IsPasswordValid(passwd string) (bool, string, int32)
+> None
+
+***
+#### Properties
+***
+
+- array of [string] UserList (read)
+> dbus.Array([dbus.String('/com/deepin/daemon/Accounts/User1000'), dbus.String('/com/deepin/daemon/Accounts/User1001')], signature=dbus.Signature('s'), variant_level=1)
+
+- Boolean AllowGuest (read)
+> None
+
+- String GuestIcon (read)
+> /var/lib/AccountsService/icons/guest.png
+
+***
+#### Signals
+***
+
+- UserAdded (string)
+> None
+
+- UserDeleted (string)
+> None
+
+***
+# /com/deepin/daemon/Accounts/User1000
+***
+## Interfaces
+***
+### com.deepin.daemon.Accounts.User
+***
+#### Methods
+***
+
+- func (u *User) DeleteIconFile(dbusMsg dbus.DMessage, icon string) error
+> None 
+
+- func (u *User) GetLargeIcon() string
+> 'file:///var/lib/AccountsService/icons/bigger/1.png'
+
+- func (u *User) IsIconDeletable(iconURI string) bool
+> None
+
+- func (u *User) SetAccountType(dbusMsg dbus.DMessage, ty int32) error
+> None
+
+- func (u *User) SetAutomaticLogin(dbusMsg dbus.DMessage, auto bool) error
+> None
+
+- func (u *User) SetBackgroundFile(dbusMsg dbus.DMessage, bg string) error
+> None
+
+- func (u *User) SetFullName(dbusMsg dbus.DMessage, name string) error
+> None
+
+- func (u *User) SetGreeterBackground(dbusMsg dbus.DMessage, bg string) error
+> None
+
+- func (u *User) SetHistoryLayout(dbusMsg dbus.DMessage, list []string) error
+> None
+
+- func (u *User) SetHomeDir(dbusMsg dbus.DMessage, home string) error
+> None
+
+- func (u *User) SetIconFile(dbusMsg dbus.DMessage, iconURI string) error
+> None
+
+- func (u *User) SetLayout(dbusMsg dbus.DMessage, layout string) error
+> None
+
+- func (u *User) SetLocale(dbusMsg dbus.DMessage, locale string) error
+> None
+
+- func (u *User) SetLocked(dbusMsg dbus.DMessage, locked bool) error
+> None
+
+- func (u *User) SetPassword(dbusMsg dbus.DMessage, words string) error
+> None
+
+- func (u *User) SetShell(dbusMsg dbus.DMessage, shell string) error
+> None
+
+***
+#### Properties
+***
+
+- array of [string] HistoryLayout (read)
+> None
+
+- array of [string] IconList (read)
+> None
+
+- boolean AutomaticLogin (read)
+> None
+
+- boolean Locked (read)
+> None
+
+- int32 AccountType (read)
+> None
+
+- string BackgroundFile (read)
+> None
+
+- string FullName (read)
+> None
+
+- string Gid (read)
+> None
+
+- string GreeterBackground (read)
+> None
+
+- string HomeDir (read)
+> None
+
+- string IconFile (read)
+> None
+
+- string Layout (read)
+> None
+
+- string Locale (read)
+> None
+
+- string Shell (read)
+> None
+
+- string Uid (read)
+> None
+
+- string UserName (read)
+> None
+
+- uint64 LoginTime (read)
+> None

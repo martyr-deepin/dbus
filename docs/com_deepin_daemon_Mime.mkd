@@ -1,8 +1,8 @@
-# /com/deepin/api/Manager
+# /com/deepin/daemon/Manager
 ***
 ## Interfaces
 ***
-### com.deepin.api/Manager
+### com.deepin.daemon/Manager
 ***
 #### Methods
 ***
@@ -34,11 +34,11 @@
 
 
 ***
-# /com/deepin/api/Media
+# /com/deepin/daemon/Media
 ***
 ## Interfaces
 ***
-### com.deepin.api.Media
+### com.deepin.daemon.Media
 ***
 #### Methods
 ***
