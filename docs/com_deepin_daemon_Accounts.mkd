@@ -83,7 +83,7 @@
 > None
 
 - func (u *User) SetAutomaticLogin(dbusMsg dbus.DMessage, auto bool) error
-> None
+> 设置自动登陆
 
 - func (u *User) SetBackgroundFile(dbusMsg dbus.DMessage, bg string) error
 > None
@@ -98,16 +98,16 @@
 > None
 
 - func (u *User) SetHomeDir(dbusMsg dbus.DMessage, home string) error
-> None
+> 设置家目录
 
 - func (u *User) SetIconFile(dbusMsg dbus.DMessage, iconURI string) error
-> None
+> 设置用户图标
 
 - func (u *User) SetLayout(dbusMsg dbus.DMessage, layout string) error
-> None
+> 设置键盘类型
 
 - func (u *User) SetLocale(dbusMsg dbus.DMessage, locale string) error
-> None
+> 设置语言
 
 - func (u *User) SetLocked(dbusMsg dbus.DMessage, locked bool) error
 > None
@@ -126,49 +126,68 @@
 > None
 
 - array of [string] IconList (read)
-> None
+> 系统图标列表：
+>
+> ['file:///var/lib/AccountsService/icons/13.png',
+>  'file:///var/lib/AccountsService/icons/12.png',
+>  'file:///var/lib/AccountsService/icons/11.png',
+>  'file:///var/lib/AccountsService/icons/2.png',
+>  'file:///var/lib/AccountsService/icons/7.png',
+>  'file:///var/lib/AccountsService/icons/5.png',
+>  'file:///var/lib/AccountsService/icons/6.png',
+>  'file:///var/lib/AccountsService/icons/1.png',
+>  'file:///var/lib/AccountsService/icons/8.png',
+>  'file:///var/lib/AccountsService/icons/10.png',
+>  'file:///var/lib/AccountsService/icons/4.png',
+>  'file:///var/lib/AccountsService/icons/9.png',
+>  'file:///var/lib/AccountsService/icons/14.png',
+>  'file:///var/lib/AccountsService/icons/3.png']
 
 - boolean AutomaticLogin (read)
-> None
+> 自动登陆
 
 - boolean Locked (read)
 > None
 
 - int32 AccountType (read)
-> None
+> 账户类型
 
 - string BackgroundFile (read)
-> None
+> 工作区1的桌面壁纸
 
 - string FullName (read)
 > None
 
 - string Gid (read)
-> None
+> 用户组id值
 
 - string GreeterBackground (read)
-> None
+> 登陆背景：
+>
+> file:///usr/share/wallpapers/deepin/****.jpg
 
 - string HomeDir (read)
-> None
+> /home/deepin
 
 - string IconFile (read)
-> None
+> 用户图标路径：
+>
+> file:///var/lib/AccountsService/icons/11.png
 
 - string Layout (read)
-> None
+> 键盘类型
 
 - string Locale (read)
-> None
+> en_US.UTF-8 / zh_CN.UTF-8
 
 - string Shell (read)
-> None
+> /bin/bash
 
 - string Uid (read)
-> None
+> 用户id值
 
 - string UserName (read)
-> None
+> 用户名
 
 - uint64 LoginTime (read)
 > None
