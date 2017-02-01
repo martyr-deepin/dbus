@@ -1,0 +1,170 @@
+***
+
+# /com/deepin/daemon/Display
+
+***
+
+## Interfaces
+
+***
+
+### com.deepin.daemon.Display
+
+***
+
+#### Methods
+
+***
+
+- func (dpy *Manager) ApplyChanges() error
+> None
+
+- func (dpy *Manager) AssociateTouch(output, touch string) error
+> None
+
+- func (dpy *Manager) DeleteCustomConfig() error
+> None
+
+- func (dpy *Manager) ListOutputNames() []string
+> 返回值：['VGA1']
+
+- func (dpy *Manager) ListOutputsCommonModes() (drandr.ModeInfos, error)
+> None
+
+- func (dpy *Manager) RefreshBrightness()
+> None
+
+- func (dpy *Manager) Reset() error
+> None
+
+- func (dpy *Manager) ResetChanges() error
+> None
+
+- func (dpy *Manager) Save() error
+> None
+
+- func (dpy *Manager) SaveBrightness()
+> None
+
+- func (dpy *Manager) doSetBrightness(value float64, name string) error
+> None
+
+- func (dpy *Manager) SetPrimary(primary string) error
+> None
+
+- func (dpy *Manager) SupportedBacklight(name string) bool
+> None
+
+- func (dpy *Manager) SwitchMode(mode uint8, name string) error
+> None
+
+***
+#### Properties
+***
+
+- Array of [Object Path] Monitors (read)
+> ['/com/deepin/daemon/Display/MonitorVGA1']
+
+- Boolean HasChanged (read)
+> None
+
+- Boolean HasCustomConfig (read)
+> None
+
+- Byte DisplayMode (read)
+> None
+
+- Dict of {String, Double} Brightness (read)
+> {'VGA1': 0.71}
+
+- Dict of {String, String} TouchMap (read)
+> None
+
+- String Primary (read)
+> VGA1
+
+- Struct of(Int16, Int16, UInt16, UInt16) PrimaryRect (read)
+> (0, 0, 1440, 900)
+
+- UInt16 ScreenHeight (read)
+> 900
+
+- UInt16 ScreenWidth (read)
+> 1440
+
+***
+# /com/deepin/daemon/Display/MonitorVGA1
+***
+## Interfaces
+***
+### com.deepin.daemon.Display.Monitor
+***
+#### Methods
+***
+
+- func (m *MonitorInfo) Enable(enabled bool) error
+> None
+
+- func (m *MonitorInfo) SetMode(v uint32) error
+> None
+
+- func (m *MonitorInfo) SetModeBySize(w, h uint16) error
+> None
+
+- func (m *MonitorInfo) SetPosition(x, y int16) error
+> None
+
+- func (m *MonitorInfo) SetRotation(v uint16) error
+> None
+
+- func (m *MonitorInfo) SetReflect(v uint16) error
+> None
+
+***
+#### Properties
+***
+
+- Array of [Struct of (UInt32, UInt16, UInt16, Double)] Modes (read)
+> [(71, 1440, 900, 59.9), (225, 1280, 1024, 75.0), (227, 1280, 720, 60.0), ..., ...]
+
+- Array of [Uint16] Reflects (read)
+> [0, 16, 32, 48]
+
+- Array of [UInt16] Rotations (read)
+> [1, 2, 4, 8]
+
+- Boolean Connected (read)
+> None
+
+- Boolean Enabled (read)
+> None
+
+- Double RefreshRate (read)
+> None
+
+- Int16 X (read)
+> None
+
+- Int16 Y (read)
+> None
+
+- String Name (read)
+> VGA1
+
+- Struct of (UInt32, UInt16, UInt16, Double) BestMode (read)
+> (71, 1440, 900, 59.9)
+
+- Struct of (UInt32, UInt16, UInt16, Double) CurrentMode (read)
+> (71, 1440, 900, 59.9)
+
+- UInt16 Height (read)
+> None
+
+- UInt16 Reflect (read)
+> None
+
+- UInt16 Rotation (read)
+> None
+
+- UInt16 Width (read)
+> None
