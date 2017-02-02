@@ -1,0 +1,76 @@
+***
+# /com/deepin/daemon/Appearance
+***
+## Interfaces
+***
+### com.deepin.daemon.Appearance
+***
+#### Methods
+***
+
+- func (m *Manager) Delete(ty, name string) error
+> None
+
+- func (m *Manager) List(ty string) (string, error)
+> 入参：ty  
+    const (
+        TypeGtkTheme          = "gtk"
+        TypeIconTheme         = "icon"
+        TypeCursorTheme       = "cursor"
+        TypeBackground        = "background"
+        TypeGreeterBackground = "greeterbackground"
+        TypeStandardFont      = "standardfont"
+        TypeMonospaceFont     = "monospacefont"
+        TypeFontSize          = "fontsize"
+    )  
+
+> 返回值：  
+    '[{"Id":"deepin","Path":"/usr/share/themes/deepin","Deletable":false},{"Id":"deepin-dark","Path":"/usr/share/themes/deepin-dark","Deletable":false}]'
+
+- func (m *Manager) Reset()
+> None
+
+- func (m *Manager) Set(ty, value string) error
+> None
+
+- func (m *Manager) Show(ty, name string) (string, error)
+> 入参：ty, name -> "gtk", "deepin"
+> 返回值：
+    '{"Id":"deepin","Path":"/usr/share/themes/deepin","Deletable":false}'
+
+- func (m *Manager) Thumbnail(ty, name string) (string, error)
+> 入参：ty, name -> "gtk", "deepin"
+> 返回值：
+    '/usr/share/personalization/thumbnail/WindowThemes/deepin-thumbnail.png'
+
+***
+#### Properties
+***
+
+- Double FontSize (read/write)
+> None
+
+- String Background (read/write)
+> None
+
+- String CursorTheme (read/write)
+> None
+
+- String GtkTheme (read/write)
+> None
+
+- String IconTheme (read/write)
+> None
+
+- String MonospaceFont (read/write)
+> None
+
+- String StandardFont (read/write)
+> None
+
+***
+#### Signals
+***
+
+- Changed (String, String)
+> None
