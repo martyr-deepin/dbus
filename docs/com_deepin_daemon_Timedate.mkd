@@ -1,0 +1,86 @@
+***
+# /com/deepin/daemon/Timedate
+***
+## Interfaces
+***
+### com.deepin/daemon.Timedate
+***
+#### Methods
+***
+
+- func (m *Manager) AddUserTimezone(zone string) error
+> None
+
+- func (m *Manager) DeleteUserTimezone(zone string) error
+> None
+
+- func (m *Manager) GetZoneInfo(zone string) (zoneinfo.ZoneInfo, error)
+> 功能：获取时区信息
+> 入参：zone
+    ['Pacific/Niue',
+     'US/Hawaii',
+     'Pacific/Tahiti',
+     'Pacific/Honolulu',
+     'Pacific/Marquesas',
+     'US/Alaska',
+     ..........
+     'Asia/Beijing',
+     'Asia/Hong_Kong',
+     'Asia/Taipei',
+     'Asia/Kuala_Lumpur',
+     'Australia/Perth',
+     'Australia/Eucla',
+     'Asia/Tokyo',
+     'Asia/Seoul',
+     'Australia/Darwin',
+     'Australia/Sydney',
+     'Pacific/Guam',
+     'Asia/Pyongyang']
+> 返回值：
+    ('Asia/Shanghai', 'Asia/Shanghai', 28800, (0, 0, 0))
+
+- func (m *Manager) GetZoneList() []string
+> 功能：获取时区列表
+
+- func (m *Manager) Reset() error
+> None
+
+- func (m *Manager) SetDate(year, month, day, hour, min, sec, nsec int32)
+> None
+
+- func (m *Manager) SetLocalRTC(localRTC, fixSystem bool) error
+> None
+
+- func (m *Manager) SetNTP(useNTP bool) error
+> None
+
+- func (m *Manager) SetTime(usec int64, relative bool) error
+> None
+
+- func (m *Manager) SetTimezone(zone string) error
+> None
+
+***
+#### Properties
+***
+
+- Array of [String] UserTimezones (read)
+> None
+
+- Boolean CanNTP (read)
+> 是否支持NTP自动同步
+
+- Boolean LocalRTC (read)
+> None
+
+- Boolean NTP (read)
+> 是否打开NTP自动同步
+
+- Boolean Use24HourFormat (read/write)
+> None
+
+- Int32 DSTOffset (read/write)
+> None
+
+- String Timezone (read)
+> 'Asia/Shanghai'
