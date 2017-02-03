@@ -1,0 +1,38 @@
+***
+# /com/deepin/daemon/SoundEffect
+***
+## Interfaces
+***
+### com.deepin.daemon.SoundEffect
+***
+#### Methods
+
+- func (m *Manager) PlaySystemSound(event string)
+> 功能：播放系统音效
+> 入参：event
+    const (
+        EventLogin               = "sys-login"
+        EventLogout              = "sys-logout"
+        EventShutdown            = "sys-shutdown"
+        EventWakeup              = "suspend-resume"
+        EventNotification        = "message-out"
+        EventUnableOperate       = "app-error"
+        EventEmptyTrash          = "trash-empty"
+        EventVolumeChanged       = "audio-volume-change"
+        EventBatteryLow          = "power-unplug-battery-low"
+        EventPowerPlug           = "power-plug"
+        EventPowerUnplug         = "power-unplug"
+        EventDevicePlug          = "device-added"
+        EventDeviceUnplug        = "device-removed"
+        EventIconToDesktop       = "send-to"
+        EventCameraShutter       = "camera-shutter"
+        EventScreenCapture       = "screen-capture"
+        EventScreenCaptureFinish = "screen-capture-complete"
+    )
+
+***
+#### Properties
+***
+
+- Boolean Enabled (read/write)
+> 是否关闭音效

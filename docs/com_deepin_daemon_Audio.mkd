@@ -1,0 +1,177 @@
+***
+# /com/deepin/daemon/Audio
+***
+## Interfaces
+***
+### com.deepin.daemon.Audio
+***
+#### Methods
+***
+
+- func (a *Audio) Reset()
+> None
+
+- func (a *Audio) SetDefaultSink(name string)
+> None
+
+- func (a *Audio) SetDefaultSource(name string)
+> None
+
+- func (a *Audio) SetPort(cardId uint32, portName string, direction int32) error
+> None
+
+***
+#### Properties
+***
+
+- Array of [Object Path] SinkInputs (read)
+> None
+
+- Double MaxUIVolume (read)
+> 1.525222
+
+- Object Path DefaultSink (read)
+> '/com/deepin/daemon/Audio/Sink1'
+
+- Object Path DefaultSource (read)
+> '/com/deepin/daemon/Audio/Source2'
+
+- String Cards (read)
+> None
+
+***
+# /com/deepin/daemon/Audio/Sink1
+***
+## Interfaces
+***
+### com.deepin.daemon.Audio.Sink
+***
+#### Methods
+***
+
+- func (s *Sink) GetMeter() *Meter
+> None
+
+- func (s *Sink) SetBalance(v float64, isPlay bool) error
+> None
+
+- func (s *Sink) SetFade(v float64) error
+> None
+
+- func (s *Sink) SetMute(v bool)
+> 设置是否静音
+
+- func (s *Sink) SetPort(name string)
+> None
+
+- func (s *Sink) SetVolume(v float64, isPlay bool) error
+> None
+
+***
+#### Properties
+***
+
+- Array of [Struct of (String, String, Byte) Ports (read)
+> None
+
+- Boolean Mute (read)
+> 是否静音
+
+- Boolean SupportBalance (read)
+> 是否支持左右声道调整
+
+- Boolean SupportFade (read)
+> 是否支持前后声道调整
+
+- Double Balance (read)
+> 左右声道平衡值
+
+- Double BaseVolume (read)
+> 默认输出音量值
+
+- Double Fade (read)
+> 前后声道平衡值
+
+- Double Volume (read)
+> 当前音量值
+
+- String Description (read)
+> None
+
+- String Name (read)
+> None
+
+- Struct of (String, String, Byte) ActivePort (read)
+> None
+
+- UInt32 Card (read)
+> None
+
+***
+# /com/deepin/daemon/Audio/Source2
+***
+## Interfaces
+***
+### com.deepin.daemon.Audio.Source
+***
+#### Methods
+***
+
+- func (s *Sink) GetMeter() *Meter
+> None
+
+- func (s *Sink) SetBalance(v float64, isPlay bool) error
+> None
+
+- func (s *Sink) SetFade(v float64) error
+> None
+
+- func (s *Sink) SetMute(v bool)
+> 设置是否静音
+
+- func (s *Sink) SetPort(name string)
+> None
+
+- func (s *Sink) SetVolume(v float64, isPlay bool) error
+> None
+
+***
+#### Properties
+***
+
+- Array of [Struct of (String, String, Byte) Ports (read)
+> None
+
+- Boolean Mute (read)
+> 是否静音
+
+- Boolean SupportBalance (read)
+> 是否支持左右声道调整
+
+- Boolean SupportFade (read)
+> 是否支持前后声道调整
+
+- Double Balance (read)
+> 左右声道平衡值
+
+- Double BaseVolume (read)
+> 默认输入音量值
+
+- Double Fade (read)
+> 前后声道平衡值
+
+- Double Volume (read)
+> 当前音量值
+
+- String Description (read)
+> None
+
+- String Name (read)
+> None
+
+- Struct of (String, String, Byte) ActivePort (read)
+> None
+
+- UInt32 Card (read)
+> None
+
