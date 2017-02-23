@@ -1,0 +1,29 @@
+***
+# /com/deepin/dde/shutdownFront
+***
+## Interfaces
+***
+### com.deepin.dde.shutdownFront
+***
+#### Methods
+
+- void Ping()
+> None
+
+- void Shutdown()
+> dde-dock上右键电源图标选择”关机“
+
+- void Restart()
+> dde-dock上右键电源图标选择”重启“
+
+- void Logout()
+> dde-dock上右键电源图标选择”注销“
+
+- void Suspend()
+> dde-dock上右键电源图标选择”待机“
+
+- void SwitchUser()
+> dde-dock上右键电源图标选择”切换“
+
+- void Show()
+> 短按主机电源按钮或者单击电源图标
