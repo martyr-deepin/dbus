@@ -1,0 +1,40 @@
+***
+# /com/deepin/dde/lock
+***
+## Interfaces
+***
+### com.deepin.dde.lock
+***
+#### Methods
+***
+
+- AddNoPwdLogin(String username) -> (Boolean result)
+> None
+
+- CurrentUser() -> (String username)
+> 当前登陆的账户名 /var/lib/lightdm/lightdm-deepin-greeter/state_user
+
+- IsLiveCD(String username) -> (Boolean lived)
+> None
+
+- NeedPwd(String username) -> (Boolean needed)
+> 登陆是否需要密码
+
+- RemoveNoPwdLogin(String username) -> (Boolean result)
+> 取消自动登陆
+
+- SwitchToUser(String username) -> (Boolean succeed)
+> 切换账户
+
+- UnlockCheck(String username, String password) -> (Boolean succeed)
+> 检查账户和密码是否正确
+
+***
+#### Signals
+***
+
+- UserChanged(String)
+> 账户切换成功
+
+- UserUnlock(String)
+> 校验账户密码正确后触发
