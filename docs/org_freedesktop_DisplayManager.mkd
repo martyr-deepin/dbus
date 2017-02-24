@@ -1,0 +1,109 @@
+***
+# /org/freedesktop/DisplayManager
+***
+## Interfaces
+***
+### org.freedesktop.DisplayManager
+***
+#### Methods
+***
+
+- AddLocalXSeat(Int32 display-number) -> (Object Path seat)
+> None
+
+- AddSeat(String type, Array of [Struct of (String, String)] properties) -> (Object Path seat)
+> None
+
+***
+#### Properties
+***
+
+- Array of [Object Path] Seats (read)
+> ['/org/freedesktop/DisplayManager/Seat0']
+
+- Array of [Object Path] Sessions (read)
+> ['/org/freedesktop/DisplayManager/Session0']
+
+***
+#### Signals
+***
+
+- SeatAdded (Object Path)
+> None
+
+- SeatRemoved (Object Path)
+> None
+
+- SessionAdded (Object Path)
+> None
+
+- SessionRemoved (Object Path)
+> None
+
+***
+# /org/freedesktop/DisplayManager/Seat0
+***
+## Interfaces
+***
+### org.freedesktop.DisplayManager.Seat
+***
+#### Methods
+***
+
+- Lock() -> ()
+> 对所有session锁屏
+
+- SwitchToGreeter() -> ()
+> None
+
+- SwitchToGuest(String session-name) -> ()
+> None
+
+- SwitchToUser(String username, String session-name)
+> None
+
+***
+#### Properties
+***
+
+- Array of [Object Path] Sessions (read)
+> Session列表
+
+- Boolean CanSwitch (read)
+> 是否能切换用户
+
+- Boolean HasGuestAccount
+> 是否有来宾
+
+***
+#### Signals
+***
+
+- SessionAdded (Object Path)
+> None
+
+- SessionRemoved (Object Path)
+> None
+
+***
+# /org/freedesktop/DisplayManager/Session0
+***
+## Interfaces
+***
+### org.freedesktop.DisplayManager.Session
+***
+#### Methods
+***
+
+- Lock() -> ()
+> 锁屏
+
+***
+#### Properties
+***
+
+- Object Path Seat (read)
+> '/org/freedesktop/DisplayManager/Seat0'
+
+- String UserName (read)
+> Session0 对应的账户名

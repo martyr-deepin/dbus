@@ -1,0 +1,18 @@
+***
+# /com/deepin/dde/lockFront
+***
+## Interfaces
+***
+### com.deepin.dde.lockFront
+***
+#### Methods
+***
+
+- void Show()
+> None
+
+- void ShowUserList()
+> None
+
+- bool lockResult()
+> None
