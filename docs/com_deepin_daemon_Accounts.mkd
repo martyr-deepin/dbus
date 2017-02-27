@@ -23,7 +23,8 @@
 > None
 
 - func (m *Manager) FindUserById(uid string) (string, error)
-> None
+> 输入：uid　'1000' 
+> 返回值：'/com/deepin/daemon/Accounts/User1000' 登陆用户的object path可查询相关信息
 
 - func (m *Manager) FindUserByName(name string) (string, error)
 > None
