@@ -1,0 +1,70 @@
+***
+# /com/deepin/SessionManager
+***
+## Interfaces
+***
+### com.deepin.SessionManager
+***
+#### Methods
+***
+
+- func (m *SessionManager) CanHibernate() bool
+> 是否可以休眠
+
+- func (m *SessionManager) CanLogout() bool
+> 是否可以注销
+
+- func (shudown *SessionManager) CanReboot() bool
+> 是否可以重启
+
+- func (shudown *SessionManager) CanShutdown() bool
+> 是否可以关机
+
+- func (m *SessionManager) CanSuspend() bool
+> 是否可以待机
+
+- func (m *SessionManager) ForceLogout()
+> 强制注销
+
+- func (m *SessionManager) ForceReboot()
+> 强制重启
+
+- func (m *SessionManager) ForceShutdown()
+> 强制关机
+
+- func (m *SessionManager) Logout()
+> 注销
+
+- (m *SessionManager) PowerOffChoose()
+> 关机选择界面
+
+- func (m *SessionManager) Register(id string) bool
+> 用于任务启动时间统计
+
+- func (m *SessionManager) RequestHibernate()
+> 休眠
+
+- func (m *SessionManager) RequestLock() error
+> 锁屏
+
+- func (m *SessionManager) RequestLogout()
+> 注销
+
+- func (m *SessionManager) RequestReboot()
+> 重启
+
+- func (m *SessionManager) RequestShutdown()
+> 关机
+
+- func (m *SessionManager) RequestSuspend()
+> 待机 
+
+***
+#### Properties
+***
+
+- Int32 Stage (read)
+> 开机运行的runlevel ５图形界面
+
+- String CurrentUid (read)
+> 登录用户的uid
