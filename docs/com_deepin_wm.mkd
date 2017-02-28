@@ -1,0 +1,46 @@
+***
+# /com/deepin/wm
+***
+## Interfaces
+***
+### com.deepin.wm
+***
+#### Methods
+***
+
+- CancelHideWindows() -> ()
+> 取消隐藏所有窗口
+
+- ChangeCurrentWorkspaceBackground(String uri) -> ()
+> 修改工作区壁纸
+
+- EnableZoneDetected(Boolean val) -> ()
+> None
+
+- GetCurrentWorkspaceBackground() -> (String uri)
+> 获取当前工作区的壁纸，dde-shutdown获取此图片设置电源界面背景
+
+- PerformAction(Int32 type) -> ()
+> None
+
+- PresentWindows(Array of [UInt32] xids) -> ()
+> 显示窗口
+
+- RequestHideWindows() -> ()
+> 隐藏工作区所有窗口
+
+- ToggleDebug() -> ()
+> None
+
+***
+#### Signals
+***
+
+- WorkspaceAdded(Int32)
+> None
+
+- WorkspaceRemoved(Int32)
+> None
+
+- WorkspaceSwitched(Int32, Int32)
+> None
