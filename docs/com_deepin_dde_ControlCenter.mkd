@@ -14,6 +14,9 @@
 - Show() -> ()
 > 打开控制中心
 
+- ShowHome() -> ()
+> 将控制中心设置为首页，如果需要打开控制中心需要调用Show()
+
 - ShowModule(String name) -> ()
 > 打开指定模块
 ```
@@ -43,4 +46,4 @@
 > 是否在右侧显示
 
 - Stuct of (Int32, Int32, Int32, Int32) Rect (read)
-> (x, y, width, height) 
+> (x, y, width, height) 控制中心实时大小，目前设置的固定width，#define FRAME_WIDTH 360
