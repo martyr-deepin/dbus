@@ -1,0 +1,220 @@
+***
+# /com/deepin/lastore
+***
+## Interfaces
+***
+### com.deepin.lastore.Manager
+***
+#### Methods
+***
+
+```
+type Job struct {
+        next   *Job
+        option map[string]string
+
+        Id         string
+        Name       string
+        Packages   []string
+        CreateTime int64
+
+        Type string
+
+        Status system.Status
+
+        Progress    float64
+        Description string
+
+        // completed bytes per second
+        Speed      int64
+        speedMeter SpeedMeter
+
+        Cancelable bool
+
+        queueName string
+        retry     int
+
+        // adjust the progress range, used by some download job type
+        progressRangeBegin float64
+        progressRangeEnd   float64
+}
+```
+
+- func (m *Manager) PackagesDownloadSize(packages []string) (int64, error)
+> 依据deb包列表，查询下载大小（字节数）
+```
+static inline QString formatCap(qulonglong cap, const int size = 1024)
+{
+    static QString type[] = {"B", "KB", "MB", "GB", "TB"};
+
+    if (cap < qulonglong(size)) {
+        return QString::number(cap) + type[0];
+    }
+    if (cap < qulonglong(size) * size) {
+        return QString::number(double(cap) / size, 'f', 2) + type[1];
+    }
+    if (cap < qulonglong(size) * size * size) {
+        return QString::number(double(cap) / size / size, 'f', 2) + type[2];
+    }
+    if (cap < qulonglong(size) * size * size * size) {
+        return QString::number(double(cap) / size / size / size, 'f', 2) + type[3];
+    }
+
+    return QString::number(double(cap) / size / size / size / size, 'f', 2) + type[4];
+}
+```
+
+- func (m *Manager) PrepareDistUpgrade() (*Job, error)
+> 点击下载更新操作，返回可连接的Object path, /com/deepin/lastore/Jobprepare_dist_upgrade
+> 会更新以下json文件
+```
+/var/lib/lastore
+-rw-r--r-- 1 root root  4051 3月  10 10:12 package_exec.json
+-rw-r--r-- 1 root root  2851 3月  10 10:12 package_icon.json
+-rw-r--r-- 1 root root 12267 3月  10 10:12 desktop_package.json
+-rw-r--r-- 1 root root  2132 3月  10 10:12 pacakge_installedTime.json
+-rw-r--r-- 1 root root  4167 3月  10 10:12 update_infos.json
+```
+
+- func (m *Manager) UpdateSource() (*Job, error)
+> 检查更新操作，返回可连接的Object path, /com/deepin/lastore/Jobupdate_source
+
+***
+#### Properties
+***
+
+- Array of [Object Path] JobList (read)
+> 包含的job path
+
+- Array of [String] SystemArchitectures (read) 
+> 系统架构 ['amd64', 'i386']
+
+- Array of [String] UpgradableApps (read)
+> 系统升级需要安装的deb列表
+
+- Boolean SystemOnChanging (read)
+> None
+
+***
+## Interfaces
+***
+### com.deepin.lastore.Updater
+***
+#### Methods
+***
+
+```
+type ApplicationInfo struct {
+        Id         string            `json:"id"`
+        Category   string            `json:"category"`
+        Icon       string            `json:"icon"`
+        Name       string            `json:"name"`
+        LocaleName map[string]string `json:"locale_name"`
+}
+```
+
+- func (u *Updater) ApplicationUpdateInfos(lang string) ([]ApplicationUpdateInfo, error)
+> 返回app列表信息
+> 入参：lang en_US/zh_CN
+
+- func (u Updater) ListMirrorSources(lang string) []LocaleMirrorSource
+> 返回镜像列表，按优先级降序排列
+> 入参：lang en_US/zh_CN
+
+- func (u *Updater) SetAutoCheckUpdates(enable bool) error
+> 设置是否自动检测
+
+- func (u *Updater) SetAutoDownloadUpdates(enable bool)
+> 设置是否自动下载更新
+
+- func (u *Updater) SetMirrorSource(id string) error
+> 设置用户下载软件的镜像源
+
+
+***
+#### Properties
+****
+
+- Array of [String] UpdatableApps (read)
+> 可更新的应用列表
+
+- Array of [String] UpdatablePackages (read)
+> 所有需要更新的deb包，如果数量大于apps的数量则会有Deepin系统更新项
+
+- Boolean AutoCheckUpdates (read)
+> 自动检查更新设置 保存在config.json
+
+- String MirrorSource (read)
+> 默认设置为：default 保存在config.json
+
+***
+# /com/deepin/lastore/Jobupdate_source
+***
+## Interfaces
+***
+### com.deepin.lastore.Job
+***
+#### Methods
+***
+
+```
+const (
+        ReadyStatus   Status = "ready"
+        RunningStatus Status = "running"
+        FailedStatus  Status = "failed"
+        SucceedStatus Status = "succeed"
+        PausedStatus  Status = "paused"
+
+        EndStatus = "end"
+)
+
+```
+
+- None
+> None
+
+***
+#### Properties
+****
+
+- Double Progress (read)
+> 进度值
+
+- String Status (read)
+> 标识运行状态
+
+***
+# /com/deepin/lastore/Jobprepare_dist_upgrade
+***
+## Interfaces
+***
+### com.deepin.lastore.Job
+***
+#### Methods
+***
+
+```
+const (
+        ReadyStatus   Status = "ready"
+        RunningStatus Status = "running"
+        FailedStatus  Status = "failed"
+        SucceedStatus Status = "succeed"
+        PausedStatus  Status = "paused"
+
+        EndStatus = "end"
+)
+
+```
+
+- None
+> None
+
+***
+#### Properties
+****
+
+- Double Progress (read)
+> 进度值
+
+- String Status (read)
+> 标识运行状态
