@@ -1,0 +1,81 @@
+***
+# /com/deepin/daemon/Grub2
+***
+## Interfaces
+***
+### com.deepin.daemon.Grub2
+***
+#### Methods
+***
+
+- func (grub *Grub2) GetAvailableResolutions() (modesJSON string, err error)
+> 返回值：分辨率信息
+```
+'[{"Text":"Auto","Value":"auto"},{"Text":"1440x900","Value":"1440x900"},{"Text":"1400x1050","Value":"1400x1050"},{"Text":"1280x800","Value":"1280x800"},{"Text":"1280x720","Value":"1280x720"},{"Text":"1366x768","Value":"1366x768"},{"Text":"1024x768","Value":"1024x768"},{"Text":"800x600","Value":"800x600"}]'
+```
+
+- func (grub *Grub2) GetSimpleEntryTitles() ([]string, error)
+> 返回值：grub启动显示列表
+```
+['Deepin 15.4 GNU/Linux']
+```
+
+- func (grub *Grub2) Reset()
+> 重新设置所有设置
+
+- func (grub *Grub2) Setup(gfxmode string)
+> None
+
+- func (grub *Grub2) SetupTheme(gfxmode string)
+> None
+
+***
+#### Properties
+***
+
+- Boolean EnableTheme (read/write)
+> None
+
+- FixSettingsAlways (read/write)
+> None
+
+- Updating (read)
+> None
+
+- Int32 Timeout (read/write)
+> None
+
+- String DefaultEntry (read/write)
+> 默认启动项
+
+- String Resolution (read/write)
+> 分辨率
+
+***
+# /com/deepin/daemon/Grub2/Theme
+***
+## Interfaces
+***
+### com.deepin.daemon.Grub2.Theme
+***
+#### Methods
+***
+
+- func (theme *Theme) SetBackgroundSourceFile(imageFile string) (ok bool, err error)
+> 设置Grub背景图片
+
+***
+#### Properties
+***
+
+- Boolean Updating (read)
+> None
+
+- String Background (read)
+> 背景图片
+
+- String ItemColor (read/write)
+> None
+
+- String SelectedItemColor (read/write)
+> None
