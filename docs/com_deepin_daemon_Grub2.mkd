@@ -63,6 +63,16 @@
 
 - func (theme *Theme) SetBackgroundSourceFile(imageFile string) (ok bool, err error)
 > 设置Grub背景图片
+```
+操作会更新/boot/grub/themes/deepin/目录中的文件：
+deepin@deepin-PC /boot/grub/themes/deepin $ ls -lt | head 
+total 9144
+-rw-r--r-- 1 root root     579 Mar 15 14:29 theme_tpl.json
+-rw-r--r-- 1 root root     831 Mar 15 14:29 theme.txt
+-rw-r--r-- 1 root root   54254 Mar 15 14:29 background_thumb.png
+-rw-r--r-- 1 root root  994511 Mar 15 14:29 background.png
+-rw-r--r-- 1 root root  459211 Mar 15 14:29 background_source
+```
 
 ***
 #### Properties
