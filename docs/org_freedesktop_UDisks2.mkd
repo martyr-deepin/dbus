@@ -1,0 +1,141 @@
+***
+# /org/freedesktop/UDisk2
+***
+## Interfaces
+***
+### org.freedesktop.DBus.ObjectManager
+***
+#### Methods
+***
+
+- GetManagedObjects() -> (DICT<OBJPATH,DICT<STRING,DICT<STRING,VARIANT>>> objpath_interfaces_and_properties)
+> 获取所有Object列表
+```
+{'/org/freedesktop/UDisks2/Manager': {'org.freedesktop.UDisks2.Manager':
+{'Version': '2.1.7'}},
+ '/org/freedesktop/UDisks2/block_devices/sda': {'org.freedesktop.UDisks2.Block':
+{'Configuration': [],
+                                                                                  'CryptoBackingDevice':
+'/',
+                                                                                  'Device':
+[47,
+                                                                                             100,
+                                                                                             101,
+                                                                                             118,
+                                                                                             47,
+                                                                                             115,
+                                                                                             100,
+                                                                                             97,
+                                                                                             0],
+                                                                                  'DeviceNumber':
+2048,
+                                                                                  'Drive':
+'/org/freedesktop/UDisks2/drives/ST500DM002_1ER14C_W4X0ELBN',
+                                                                                  'HintAuto':
+False,
+                                                                                  'HintIconName':
+'',
+                                                                                  'HintIgnore':
+False,
+                                                                                  'HintName':
+'',
+                                                                                  'HintPartitionable':
+True,
+                                                                                  'HintSymbolicIconName':
+'',
+                                                                                  'HintSystem':
+True,
+                                                                                  'Id':
+'by-id-ata-ST500DM002-1ER14C_W4X0ELBN',
+                                                                                  'IdLabel':
+'',
+                                                                                  'IdType':
+'',
+                                                                                  'IdUUID':
+'',
+                                                                                  'IdUsage':
+'',
+                                                                                  'IdVersion':
+'',
+                                                                                  'MDRaid':
+'/',
+                                                                                  'MDRaidMember':
+'/',
+                                                                                  'PreferredDevice':
+[47,
+                                                                                                      100,
+                                                                                                      101,
+                                                                                                      118,
+                                                                                                      47,
+                                                                                                      115,
+                                                                                                      100,
+                                                                                                      97,
+                                                                                                      0],
+                                                                                  'ReadOnly':
+False,
+                                                                                  'Size':
+500107862016,
+                                                                                  'Symlinks':
+[[47,
+                                                                                                100,
+                                                                                                101,
+                                                                                                116,
+                                                                                                97,
+                                                                                                45,
+                                                                                                49,
+                                                                                                0]]},
+                                                'org.freedesktop.UDisks2.PartitionTable':
+{'Type': 'dos'}}}
+```
+
+***
+#### Signals
+***
+
+- InterfacesAdded (Object Path, Dict os {String, Dict of {String, Variant}})
+> None
+
+- InterfacesRemoved (Object Path, Array of [String])
+> None
+
+***
+# /org/freedesktop/UDisks2/block_devices/sda
+***
+## Interfaces
+***
+### org.freedesktop.UDisks2.Block
+***
+
+- None
+> None
+
+***
+#### Properties
+***
+
+- Object Path Drive (read)
+> 驱动路径，同一硬盘以及分区的驱动路径相同，控制中心统计识别磁盘大小的时候会先统计整盘，然后过滤掉分区
+
+***
+# /org/freedesktop/UDisks2/drives/ST500DM002_1ER14C_W4X0ELBN
+***
+## Interfaces
+***
+### org.freedesktop.UDisks2.drive
+***
+#### Methods
+***
+
+- Eject (Dict os {String, Variant) options) -> ()
+> 卸载操作
+
+***
+#### Properties
+***
+
+- Boolean Ejectable (read)
+> 是否可卸载
+
+- Boolean Removable (read)
+> 是否可删除，统计识别磁盘容量会用到，如果可以删除，则不统计。例如：U盘
+
