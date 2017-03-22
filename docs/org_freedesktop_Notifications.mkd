@@ -1,0 +1,52 @@
+***
+# /org/freedesktop/Notifications
+***
+## Interfaces
+***
+### org.freedesktop.Notifications
+***
+#### Methods
+***
+```
+deepin-notifications dbus接口
+/usr/lib/deepin-notifications/deepin-notifications
+/usr/share/dbus-1/services/com.deepin.Notifications.service
+```
+
+- QStringList NotificationsDBusAdaptor::GetCapbilities()
+> 获取Notify的入参列表说明，但是说明不全
+
+- QString NotificationsDBusAdaptor::GetServerInformation(QString &out1, QString &out2, QString &out3)
+> 返回server相关信息，目前只返回一个string：1.2
+
+- uint NotificationsDBusAdaptor::Notify(const QString &in0, uint in1, const 
+QString &in2, const QString &in3, const QString &in4, const QStringList &in5,
+const QVariantMap &in6, int in7)
+> 处理通知消息
+```
+uint BubbleManager::Notify(const QString &appName, uint,
+                           const QString &appIcon, const QString &summary,
+                           const QString &body, const QStringList &actions,
+                           const QVariantMap hints, int expireTimeout)
+
+qDebug() << "Notify" << appName << appIcon << summary << body << actions << hints << expireTimeout;
+
+使用的参数如下：appName, appIcon, summary, body, actions, hints
+
+expireTimeout 设置为5秒
+
+可以使用notify-send命令测试
+```
+
+***
+#### Signals
+***
+
+- ActionInvoked (UInt32, String)
+> None
+
+- NotificationClosed (Uint32, Uint32)
+> None
+
+- RecordAdded (String)
+> None
