@@ -1,0 +1,53 @@
+***
+# /com/deepin/api/XMouseArea
+***
+## Interfaces
+***
+### com.deepin.api.XMouseArea
+***
+#### Methods
+***
+
+- func (m *Manager) RegisterArea(dbusMsg dbus.DMessage, x1, y1, x2, y2, flag int32) (string, error)
+> None
+
+- func (m *Manager) RegisterAreas(dbusMsg dbus.DMessage, areas []coordinateRange, flag int32) (id string, err error)
+> None
+
+- func (m *Manager) RegisterFullScreen(dbusMsg dbus.DMessage) (id string, err error)
+> 注册程序全屏鼠标监控区域，一个程序只能创建一个鼠标监控区域
+>
+> 返回值：id
+
+- func (m *Manager) UnregisterArea(dbusMsg dbus.DMessage, id string)
+> 注销鼠标监控区域
+
+***
+#### Signals
+***
+
+- ButtonPress (int32, Int32, Int32, String)
+> None
+
+- ButtonRelease (Int32, Int32, Int32, String)
+> button, x, y, key
+>
+> button:鼠标左中右键，x:鼠标横坐标，y:鼠标纵坐标，key注册返回的id
+
+- CancelAllArea ()
+> None
+
+- CursorInto (Int32, Int32, String)
+> None
+
+- CursorMove (Int32, Int32, String)
+> None
+
+- CursorOut (Int32, Int32, String)
+> None
+
+- KeyPress (String, Int32, Int32, String)
+> None
+
+- KeyRelease (String, Int32, Int32, String)
+> None
