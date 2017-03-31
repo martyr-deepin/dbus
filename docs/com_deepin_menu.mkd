@@ -1,0 +1,55 @@
+***
+
+# com/deepin/menu
+
+***
+
+## Interfaces
+
+***
+
+### com.deepin.menu.Manager
+
+***
+
+#### Methods
+
+***
+
+- RegisterMenu () -> (Object Path menuObjectPath)
+> 注册dbus对象，返回路径，可多次注册，只保留最后一次
+
+- UnregisterMenu (String menuObjectPath) -> ()
+> 注销Menu
+
+***
+# /com/deepin/menu/d9699c8f_727a_4a0b_a02b_e3b8e51bf998
+***
+## Interfaces
+***
+### com.deepin.menu.Menu
+***
+#### Methods
+***
+
+- void MenuAdaptor::SetItemActivity(const QString &itemId, bool isActive)
+> 确认操作
+
+- void MenuAdaptor::SetItemChecked(const QString &itemId, bool checked)
+> 选中item操作
+
+- void MenuAdaptor::SetItemText(const QString &itemId, const QString &text)
+> 设置menu内容
+
+- void MenuAdaptor::ShowMenu(const QString &menuJsonContent)
+> 显示menu列表
+
+***
+#### Signals
+***
+
+- ItemInvoked (String, Boolean)
+> None
+
+- MenuUnregistered()
+> None
