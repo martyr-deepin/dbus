@@ -1,0 +1,106 @@
+***
+# /com/deepin/dde/daemon/Dock
+***
+## Interfaces
+***
+### com.deepin.dde.daemon.Dock
+***
+#### Methods
+***
+
+- func (m *DockManager) ActivateWindow(win uint32) error
+> 激活窗口
+
+- func (m *DockManager) CloseWindow(win uint32) error
+> 关闭窗口
+
+- func (m *DockManager) GetEntryIDs() []string
+> 返回dock上已经驻留的appname
+```
+['deepin-toggle-desktop',
+ 'deepin-wm-multitaskingview',
+ 'dde-file-manager',
+ 'deepin-appstore',
+ 'deepin-music',
+ 'deepin-screen-recorder',
+ 'google-chrome',
+ 'deepin-movie',
+ 'dde-control-center',
+ 'd-feet']
+```
+
+- func (m *DockManager) IsDocked(desktopFilePath string) (bool, error)
+> 是否已经驻留在dock
+```
+'/usr/share/applications/d-feet.desktop'
+返回：false
+```
+
+- func (m *DockManager) IsOnDock(desktopFilePath string) (bool, error)
+> 是否已经出现在dock
+```
+'/usr/share/applications/d-feet.desktop'
+返回：true
+```
+
+- func (m *DockManager) MoveEntry(index, newIndex int32) error
+> 移动图标到相对位置,前台界面不会变动，此接口只会更新后台保存的顺序，可以用GetEntryIDs查询顺序
+
+- func (m *DockManager) QueryWindowIdentifyMethod(wid uint32) (string, error)
+> None
+
+- func (m *DockManager) RequestDock(desktopFilePath string, index int32) (bool, error)
+> 请求dock驻留
+
+- func (m *DockManager) RequestUndock(desktopFilePath string) (bool, error)
+> 清除dock驻留
+
+- func (m *DockManager) SetFrontendWindowRect(x, y int32, width, height uint32) 
+- 置顶显示dock窗口
+
+***
+#### Properties
+***
+
+- Array of [Object Path] Entries (read)
+> 获取每个appitem的dbus路径
+
+- Array of [String] DockedAps (read)
+> 驻留在dock上的程序名
+
+- Int32 DisplayMode (read/write)
+> None
+
+- Int32 HideMode (read/write)
+> None
+
+- Int32 HideState (read)
+> None
+
+- Int32 Position (read/write)
+> None
+
+- Int32 HideTimeout (read/write)
+> None
+
+- Int32 IconSize (read/write)
+> None
+
+- ShowTimeout (read/write)
+> None
+
+- Struct of (Int32, Int32, UInt32, UInt32) FrontendWindowRect (read)
+> None
+
+***
+#### Signals
+***
+
+- EntryAdded (Object Path, Int32)
+> None
+
+- EntryRemoved (String)
+> None
+
+- ServiceRestarted ()
+> None
