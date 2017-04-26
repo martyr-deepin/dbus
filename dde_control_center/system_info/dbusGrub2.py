@@ -18,19 +18,24 @@ class DbusGrub2:
                 dbus_interface=self.dbus_ifc)
 
     def getDefaultEntry(self):
-        return self.ifc_properties.DefaultEntry("DefaultEntry")
+        return self.ifc_properties.Get(self.dbus_ifc,
+                "DefaultEntry")
 
     def getEnableTheme(self):
-        return self.ifc_properties.DefaultEntry("EnableTheme")
+        return self.ifc_properties.Get(self.dbus_ifc,
+                "EnableTheme")
 
     def getResolution(self):
-        return self.ifc_properties.DefaultEntry("Resolution")
+        return self.ifc_properties.Get(self.dbus_ifc,
+                "Resolution")
 
     def getTimeout(self):
-        return self.ifc_properties.DefaultEntry("Timeout")
+        return self.ifc_properties.Get(self.dbus_ifc,
+                "Timeout")
 
     def getUpdating(self):
-        return self.ifc_properties.DefaultEntry("Updating")
+        return self.ifc_properties.Get(self.dbus_ifc,
+                "Updating")
 
     def GetAvailableResolutions(self):
         """
@@ -61,3 +66,46 @@ class DbusGrub2:
         newTimeout: type int seconds
         """
         return self.ifc_methods.SetTimeout(newTimeout)
+
+
+class DbusTheme:
+    def __init__(self):
+        self.dbus_name = 'com.deepin.daemon.Grub2'
+        self.dbus_path = '/com/deepin/daemon/Grub2/Theme'
+        self.dbus_ifc  = 'com.deepin.daemon.Grub2/Theme'
+
+        self.system_bus = dbus.SystemBus()
+        self.system_obj = self.system_bus.get_object(self.dbus_name,
+                self.dbus_path)
+        self.ifc_properties = dbus.Interface(self.system_obj,
+                dbus_interface=dbus.PROPERTIES_IFACE)
+        self.ifc_methods = dbus.Interface(self.system_obj,
+                dbus_interface=self.dbus_ifc)
+
+    def getUpdating(self):
+        return self.ifc_properties.Get(self.dbus_ifc,
+                "Updating")
+
+    def getBackground(self):
+        return self.ifc_properties.Get(self.dbus_ifc,
+                "Background")
+
+    def getItemColor(self):
+        return self.ifc_properties.Get(self.dbus_ifc,
+                "ItemColor")
+
+    def getSelectedItemColor(self):
+        return self.ifc_properties.Get(self.dbus_ifc,
+                "SelectedItemColor")
+
+    def SetBackgroundSourceFile(self, newFilePath):
+        return self.ifc_methods.SetBackgroundSourceFile(newFilePath)
+
+    def SetItemColor(self, newColor):
+        return self.ifc_methods.SetItemColor(newColor)
+
+    def SetSelectedColor(self, newColor):
+        return self.ifc_methods.SetSelectedColor(newColor)
+
+
+
