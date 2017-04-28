@@ -106,6 +106,3 @@ class DbusTheme:
 
     def SetSelectedColor(self, newColor):
         return self.ifc_methods.SetSelectedColor(newColor)
-
-
-
