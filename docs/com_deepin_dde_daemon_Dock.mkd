@@ -8,8 +8,15 @@
 #### Methods
 ***
 
+```
+win or wid保存在Entries的WindowTitles属性中，包含wid和name
+```
+
 - func (m *DockManager) ActivateWindow(win uint32) error
 > 激活窗口
+
+- func (m *DockManager) CancelPreviewWindow() error
+> 调用wm取消预览窗口操作
 
 - func (m *DockManager) CloseWindow(win uint32) error
 > 关闭窗口
@@ -45,6 +52,9 @@
 
 - func (m *DockManager) MoveEntry(index, newIndex int32) error
 > 移动图标到相对位置,前台界面不会变动，此接口只会更新后台保存的顺序，可以用GetEntryIDs查询顺序
+
+- func (m *DockManager) PreviewWindow(win uint32) error
+> 显示预览窗口
 
 - func (m *DockManager) QueryWindowIdentifyMethod(wid uint32) (string, error)
 > None
