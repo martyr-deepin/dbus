@@ -1,12 +1,7 @@
-***
 # /com/deepin/daemon/Grub2
-***
 ## Interfaces
-***
 ### com.deepin.daemon.Grub2
-***
 #### Methods
-***
 
 - func (grub *Grub2) GetAvailableResolutions() (modesJSON string, err error)
 > 返回值：分辨率信息
@@ -29,9 +24,7 @@
 - func (grub *Grub2) SetupTheme(gfxmode string)
 > None
 
-***
 #### Properties
-***
 
 - Boolean EnableTheme (read/write)
 > None
@@ -51,15 +44,10 @@
 - String Resolution (read/write)
 > 分辨率
 
-***
 # /com/deepin/daemon/Grub2/Theme
-***
 ## Interfaces
-***
 ### com.deepin.daemon.Grub2.Theme
-***
 #### Methods
-***
 
 - func (theme *Theme) SetBackgroundSourceFile(imageFile string) (ok bool, err error)
 > 设置Grub背景图片
@@ -74,9 +62,7 @@ total 9144
 -rw-r--r-- 1 root root  459211 Mar 15 14:29 background_source
 ```
 
-***
 #### Properties
-***
 
 - Boolean Updating (read)
 > None

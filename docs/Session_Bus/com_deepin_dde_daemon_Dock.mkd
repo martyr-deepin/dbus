@@ -1,12 +1,7 @@
-***
 # /com/deepin/dde/daemon/Dock
-***
 ## Interfaces
-***
 ### com.deepin.dde.daemon.Dock
-***
 #### Methods
-***
 
 ```
 win or wid保存在Entries的WindowTitles属性中，包含wid和name
@@ -68,9 +63,7 @@ win or wid保存在Entries的WindowTitles属性中，包含wid和name
 - func (m *DockManager) SetFrontendWindowRect(x, y int32, width, height uint32) 
 - 置顶显示dock窗口
 
-***
 #### Properties
-***
 
 - Array of [Object Path] Entries (read)
 > 获取每个appitem的dbus路径
@@ -102,9 +95,7 @@ win or wid保存在Entries的WindowTitles属性中，包含wid和name
 - Struct of (Int32, Int32, UInt32, UInt32) FrontendWindowRect (read)
 > None
 
-***
 #### Signals
-***
 
 - EntryAdded (Object Path, Int32)
 > None

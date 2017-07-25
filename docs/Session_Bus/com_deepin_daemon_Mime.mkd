@@ -1,11 +1,7 @@
 # /com/deepin/daemon/Manager
-***
 ## Interfaces
-***
 ### com.deepin.daemon/Manager
-***
 #### Methods
-***
 
 - func (m *Manager) AddUserApp(mimes []string, desktopId string) error
 > None
@@ -25,23 +21,16 @@
 - func (m *Manager) Reset()
 > None
 
-***
 #### Signals
-***
 
 - Change
 
 
 
-***
 # /com/deepin/daemon/Media
-***
 ## Interfaces
-***
 ### com.deepin.daemon.Media
-***
 #### Methods
-***
 
 - func (media *Media) EnableAutoOpen(enabled bool)
 > None
@@ -55,9 +44,7 @@
 - func (media *Media) Reset()
 > None
 
-***
 #### Properties
-***
 
 - Boolean AutoOpen (read)
 > None

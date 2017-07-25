@@ -1,12 +1,7 @@
-***
 # /com/deepin/daemon/LangSelector
-***
 ## Interfaces
-***
 ### com.deepin.daemon.LangSelector
-***
 #### Methods
-***
 
 ```
 type LocaleInfo struct {
@@ -34,9 +29,7 @@ type LocaleInfo struct {
       'zh_CN.UTF-8'
 > 返回值：无
 
-***
 #### Properties
-***
 
 - int32 LocaleState (read)
 > None
@@ -44,9 +37,7 @@ type LocaleInfo struct {
 - string CurrentLocale (read)
 > None
 
-***
 #### Signals
-***
 
 - Changed (string)
 > None

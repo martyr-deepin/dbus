@@ -38,6 +38,8 @@
    Session_Bus/org_freedesktop_Notifications
    Session_Bus/org_mpris_MediaPlayer2.cloudmusic
 
+.. toctree::
+   :maxdepth: 2
    :caption: Bus: System Bus
 
    System_Bus/com_deepin_daemon_Accounts

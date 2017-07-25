@@ -1,11 +1,7 @@
 # /org/mpris/MediaPlayer2
-***
 ## Interfaces
-***
 ### org.mpris.MediaPlayer2.Player
-***
 #### Methods
-***
 
 - Next()
 > 下一曲
@@ -34,9 +30,7 @@
 - Stop()
 > 停止播放
 
-***
 #### Properties
-***
 
 - Dict of { String, Variant } Metadata (read)
 > {'mpris:artUrl': 'file:///home/deepin/.cache/netease-cloud-music/AlbumCover/89301c959afbcb3236c8e8daad559544'}

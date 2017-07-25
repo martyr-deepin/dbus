@@ -1,12 +1,7 @@
-***
 # /com/deepin/SessionManager
-***
 ## Interfaces
-***
 ### com.deepin.SessionManager
-***
 #### Methods
-***
 
 - func (m *SessionManager) CanHibernate() bool
 > 是否可以休眠
@@ -59,9 +54,7 @@
 - func (m *SessionManager) RequestSuspend()
 > 待机 
 
-***
 #### Properties
-***
 
 - Int32 Stage (read)
 > 开机运行的runlevel ５图形界面

@@ -1,12 +1,7 @@
-***
 # /com/deepin/wm
-***
 ## Interfaces
-***
 ### com.deepin.wm
-***
 #### Methods
-***
 
 - CancelHideWindows() -> ()
 > 取消隐藏所有窗口
@@ -32,9 +27,7 @@
 - ToggleDebug() -> ()
 > None
 
-***
 #### Signals
-***
 
 - WorkspaceAdded(Int32)
 > None

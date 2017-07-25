@@ -1,12 +1,7 @@
-***
 # /com/deepin/dde/daemon/Launcher
-***
 ## Interfaces
-***
 ### com.deepin.dde.daemon.Launcher
-***
 #### Methods
-***
 
 - func (m *Manager) GetAllItemInfos() []ItemInfo
 > 获取所有应用的信息
@@ -55,9 +50,7 @@
 - func (m *Manager) Search(key string)
 > Launcher中的搜索功能
 
-***
 #### Signals
-***
 
 - ItemChanged (String, Stuct of (String, String, String, String, Int64, Int64),
   Int64)

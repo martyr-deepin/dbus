@@ -1,12 +1,7 @@
-***
 # /com/deepin/lastore
-***
 ## Interfaces
-***
 ### com.deepin.lastore.Manager
-***
 #### Methods
-***
 
 ```
 type Job struct {
@@ -79,9 +74,7 @@ static inline QString formatCap(qulonglong cap, const int size = 1024)
 - func (m *Manager) UpdateSource() (*Job, error)
 > 检查更新操作，返回可连接的Object path, /com/deepin/lastore/Jobupdate_source
 
-***
 #### Properties
-***
 
 - Array of [Object Path] JobList (read)
 > 包含的job path
@@ -95,13 +88,9 @@ static inline QString formatCap(qulonglong cap, const int size = 1024)
 - Boolean SystemOnChanging (read)
 > None
 
-***
 ## Interfaces
-***
 ### com.deepin.lastore.Updater
-***
 #### Methods
-***
 
 ```
 type ApplicationInfo struct {
@@ -131,9 +120,7 @@ type ApplicationInfo struct {
 > 设置用户下载软件的镜像源
 
 
-***
 #### Properties
-****
 
 - Array of [String] UpdatableApps (read)
 > 可更新的应用列表
@@ -147,15 +134,10 @@ type ApplicationInfo struct {
 - String MirrorSource (read)
 > 默认设置为：default 保存在config.json
 
-***
 # /com/deepin/lastore/Jobupdate_source
-***
 ## Interfaces
-***
 ### com.deepin.lastore.Job
-***
 #### Methods
-***
 
 ```
 const (
@@ -173,9 +155,7 @@ const (
 - None
 > None
 
-***
 #### Properties
-****
 
 - Double Progress (read)
 > 进度值
@@ -183,15 +163,10 @@ const (
 - String Status (read)
 > 标识运行状态
 
-***
 # /com/deepin/lastore/Jobprepare_dist_upgrade
-***
 ## Interfaces
-***
 ### com.deepin.lastore.Job
-***
 #### Methods
-***
 
 ```
 const (
@@ -209,9 +184,7 @@ const (
 - None
 > None
 
-***
 #### Properties
-****
 
 - Double Progress (read)
 > 进度值

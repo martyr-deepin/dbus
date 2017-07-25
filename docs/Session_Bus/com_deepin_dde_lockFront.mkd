@@ -1,12 +1,7 @@
-***
 # /com/deepin/dde/lockFront
-***
 ## Interfaces
-***
 ### com.deepin.dde.lockFront
-***
 #### Methods
-***
 
 - void Show()
 > None

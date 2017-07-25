@@ -1,20 +1,15 @@
-***
 
 # /com/deepin/daemon/Display
 
-***
 
 ## Interfaces
 
-***
 
 ### com.deepin.daemon.Display
 
-***
 
 #### Methods
 
-***
 
 - func (dpy *Manager) ApplyChanges() error
 > None
@@ -58,9 +53,7 @@
 - func (dpy *Manager) SwitchMode(mode uint8, name string) error
 > None
 
-***
 #### Properties
-***
 
 - Array of [Object Path] Monitors (read)
 > ['/com/deepin/daemon/Display/MonitorVGA1']
@@ -92,15 +85,10 @@
 - UInt16 ScreenWidth (read)
 > 1440
 
-***
 # /com/deepin/daemon/Display/MonitorVGA1
-***
 ## Interfaces
-***
 ### com.deepin.daemon.Display.Monitor
-***
 #### Methods
-***
 
 - func (m *MonitorInfo) Enable(enabled bool) error
 > None
@@ -120,9 +108,7 @@
 - func (m *MonitorInfo) SetReflect(v uint16) error
 > None
 
-***
 #### Properties
-***
 
 - Array of [Struct of (UInt32, UInt16, UInt16, Double)] Modes (read)
 > [(71, 1440, 900, 59.9), (225, 1280, 1024, 75.0), (227, 1280, 720, 60.0), ..., ...]

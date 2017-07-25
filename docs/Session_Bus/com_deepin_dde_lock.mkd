@@ -1,12 +1,7 @@
-***
 # /com/deepin/dde/lock
-***
 ## Interfaces
-***
 ### com.deepin.dde.lock
-***
 #### Methods
-***
 
 - AddNoPwdLogin(String username) -> (Boolean result)
 > None
@@ -29,9 +24,7 @@
 - UnlockCheck(String username, String password) -> (Boolean succeed)
 > 检查账户和密码是否正确
 
-***
 #### Signals
-***
 
 - UserChanged(String)
 > 账户切换成功

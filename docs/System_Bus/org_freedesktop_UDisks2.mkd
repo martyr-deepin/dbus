@@ -1,12 +1,7 @@
-***
 # /org/freedesktop/UDisk2
-***
 ## Interfaces
-***
 ### org.freedesktop.DBus.ObjectManager
-***
 #### Methods
-***
 
 - GetManagedObjects() -> (DICT<OBJPATH,DICT<STRING,DICT<STRING,VARIANT>>> objpath_interfaces_and_properties)
 > 获取所有Object列表
@@ -88,9 +83,7 @@ False,
 {'Type': 'dos'}}}
 ```
 
-***
 #### Signals
-***
 
 - InterfacesAdded (Object Path, Dict os {String, Dict of {String, Variant}})
 > None
@@ -98,40 +91,27 @@ False,
 - InterfacesRemoved (Object Path, Array of [String])
 > None
 
-***
 # /org/freedesktop/UDisks2/block_devices/sda
-***
 ## Interfaces
-***
 ### org.freedesktop.UDisks2.Block
-***
 
 - None
 > None
 
-***
 #### Properties
-***
 
 - Object Path Drive (read)
 > 驱动路径，同一硬盘以及分区的驱动路径相同，控制中心统计识别磁盘大小的时候会先统计整盘，然后过滤掉分区
 
-***
 # /org/freedesktop/UDisks2/drives/ST500DM002_1ER14C_W4X0ELBN
-***
 ## Interfaces
-***
 ### org.freedesktop.UDisks2.drive
-***
 #### Methods
-***
 
 - Eject (Dict os {String, Variant) options) -> ()
 > 卸载操作
 
-***
 #### Properties
-***
 
 - Boolean Ejectable (read)
 > 是否可卸载

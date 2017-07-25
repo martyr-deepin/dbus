@@ -1,12 +1,7 @@
-***
 # /com/deepin/daemon/Timedate
-***
 ## Interfaces
-***
 ### com.deepin/daemon.Timedate
-***
 #### Methods
-***
 
 - func (m *Manager) AddUserTimezone(zone string) error
 > None
@@ -60,9 +55,7 @@
 - func (m *Manager) SetTimezone(zone string) error
 > None
 
-***
 #### Properties
-***
 
 - Array of [String] UserTimezones (read)
 > None

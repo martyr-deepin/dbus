@@ -1,12 +1,7 @@
-***
 # /org/ayatana/bamf/control
-***
 ## Interfaces
-***
 ### org.ayatana.bamf.matcher
-***
 #### Methods
-***
 
 - ApplicationForXid(Uint32 xid) -> (String application)
 > 返回xid对应的app路径
@@ -14,15 +9,10 @@
 - XidsForApplication(String desktop_file) -> (Array of [Uint32] xids)
 > 返回app对应的所有xid
 
-***
 # /org/ayatana/bamf/application4563423232
-***
 ## Interfaces
-***
 ### org.ayatana.bamf.application
-***
 #### Methods
-***
 
 - DesktopFile() -> (String desktop_file)
 > 返回desktop的路径
@@ -30,13 +20,9 @@
 - Xids() -> (Array of [Uint32] xids)
 > 返回
 
-***
 ## Interfaces
-***
 ### org.ayatana.bamf.view
-***
 #### Methods
-***
 
 - Name() -> (String name)
 > 返回程序名

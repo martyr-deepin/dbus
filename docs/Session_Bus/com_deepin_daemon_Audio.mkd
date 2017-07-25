@@ -1,12 +1,7 @@
-***
 # /com/deepin/daemon/Audio
-***
 ## Interfaces
-***
 ### com.deepin.daemon.Audio
-***
 #### Methods
-***
 
 - func (a *Audio) Reset()
 > None
@@ -20,9 +15,7 @@
 - func (a *Audio) SetPort(cardId uint32, portName string, direction int32) error
 > None
 
-***
 #### Properties
-***
 
 - Array of [Object Path] SinkInputs (read)
 > None
@@ -39,15 +32,10 @@
 - String Cards (read)
 > None
 
-***
 # /com/deepin/daemon/Audio/Sink1
-***
 ## Interfaces
-***
 ### com.deepin.daemon.Audio.Sink
-***
 #### Methods
-***
 
 - func (s *Sink) GetMeter() *Meter
 > None
@@ -67,9 +55,7 @@
 - func (s *Sink) SetVolume(v float64, isPlay bool) error
 > None
 
-***
 #### Properties
-***
 
 - Array of [Struct of (String, String, Byte) Ports (read)
 > None
@@ -107,15 +93,10 @@
 - UInt32 Card (read)
 > None
 
-***
 # /com/deepin/daemon/Audio/Source2
-***
 ## Interfaces
-***
 ### com.deepin.daemon.Audio.Source
-***
 #### Methods
-***
 
 - func (s *Sink) GetMeter() *Meter
 > None
@@ -135,9 +116,7 @@
 - func (s *Sink) SetVolume(v float64, isPlay bool) error
 > None
 
-***
 #### Properties
-***
 
 - Array of [Struct of (String, String, Byte) Ports (read)
 > None

@@ -1,10 +1,6 @@
-***
 # /com/deepin/dde/shutdownFront
-***
 ## Interfaces
-***
 ### com.deepin.dde.shutdownFront
-***
 #### Methods
 
 - void Ping()

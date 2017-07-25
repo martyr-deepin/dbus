@@ -1,19 +1,12 @@
-***
 # /com/deepin/wm_switcher
-***
 ## Interfaces
-***
 ### com.deepin.wm_switcher
-***
 #### Methods
-***
 
 - requestSwitchWM() -> ()
 > 切换窗口特效
 
-***
 #### Signals
-***
 
 - toggleWM()
 > None

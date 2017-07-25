@@ -1,12 +1,7 @@
-***
 # /com/deepin/dde/ControlCenter
-***
 ## Interfaces
-***
 ### con.deepin.dde.ControlCenter
-***
 #### Methods
-***
 
 - Hide() -> ()
 > 隐藏控制中心
@@ -38,9 +33,7 @@
 - Toggle() -> ()
 > 隐藏和打开切换
 
-***
 #### Properties
-***
 
 - Boolean ShowInRight (read)
 > 是否在右侧显示

@@ -1,12 +1,7 @@
-***
 # /com/deepin/daemon/Appearance
-***
 ## Interfaces
-***
 ### com.deepin.daemon.Appearance
-***
 #### Methods
-***
 
 - func (m *Manager) Delete(ty, name string) error
 > None
@@ -43,9 +38,7 @@
 > 返回值：
     '/usr/share/personalization/thumbnail/WindowThemes/deepin-thumbnail.png'
 
-***
 #### Properties
-***
 
 - Double FontSize (read/write)
 > None
@@ -68,9 +61,7 @@
 - String StandardFont (read/write)
 > None
 
-***
 #### Signals
-***
 
 - Changed (String, String)
 > None

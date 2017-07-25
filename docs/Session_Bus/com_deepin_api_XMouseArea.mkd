@@ -1,12 +1,7 @@
-***
 # /com/deepin/api/XMouseArea
-***
 ## Interfaces
-***
 ### com.deepin.api.XMouseArea
-***
 #### Methods
-***
 
 - func (m *Manager) RegisterArea(dbusMsg dbus.DMessage, x1, y1, x2, y2, flag int32) (string, error)
 > None
@@ -22,9 +17,7 @@
 - func (m *Manager) UnregisterArea(dbusMsg dbus.DMessage, id string)
 > 注销鼠标监控区域
 
-***
 #### Signals
-***
 
 - ButtonPress (int32, Int32, Int32, String)
 > None

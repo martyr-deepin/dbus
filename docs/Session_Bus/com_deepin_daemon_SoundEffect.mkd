@@ -1,10 +1,6 @@
-***
 # /com/deepin/daemon/SoundEffect
-***
 ## Interfaces
-***
 ### com.deepin.daemon.SoundEffect
-***
 #### Methods
 
 - func (m *Manager) PlaySystemSound(event string)
@@ -30,9 +26,7 @@
         EventScreenCaptureFinish = "screen-capture-complete"
     )
 
-***
 #### Properties
-***
 
 - Boolean Enabled (read/write)
 > 是否关闭音效

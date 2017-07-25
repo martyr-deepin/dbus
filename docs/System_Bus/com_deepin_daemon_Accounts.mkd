@@ -1,12 +1,7 @@
-***
 # /com/deepin/daemon/Accounts
-***
 ## Interfaces
-***
 ### com.deepin.daemon.Accounts
-***
 #### Methods
-***
 
 - func (m *Manager) AllowGuestAccount(dbusMsg dbus.DMessage, allow bool) error
 > None
@@ -38,9 +33,7 @@
 - func (m *Manager) IsPasswordValid(passwd string) (bool, string, int32)
 > None
 
-***
 #### Properties
-***
 
 - array of [string] UserList (read)
 > dbus.Array([dbus.String('/com/deepin/daemon/Accounts/User1000'), dbus.String('/com/deepin/daemon/Accounts/User1001')], signature=dbus.Signature('s'), variant_level=1)
@@ -51,9 +44,7 @@
 - String GuestIcon (read)
 > /var/lib/AccountsService/icons/guest.png
 
-***
 #### Signals
-***
 
 - UserAdded (string)
 > None
@@ -61,15 +52,10 @@
 - UserDeleted (string)
 > None
 
-***
 # /com/deepin/daemon/Accounts/User1000
-***
 ## Interfaces
-***
 ### com.deepin.daemon.Accounts.User
-***
 #### Methods
-***
 
 - func (u *User) DeleteIconFile(dbusMsg dbus.DMessage, icon string) error
 > None 
@@ -119,9 +105,7 @@
 - func (u *User) SetShell(dbusMsg dbus.DMessage, shell string) error
 > None
 
-***
 #### Properties
-***
 
 - array of [string] HistoryLayout (read)
 > None
