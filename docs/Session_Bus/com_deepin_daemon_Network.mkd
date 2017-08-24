@@ -1,0 +1,28 @@
+# /com/deepin/daemon/Network
+## Interfaces
+### com.deepin.daemon.Network
+#### Methods
+
+- func (m *Manager) GetActiveConnectionInfo() (acinfosJSON string, err error)
+> 获取激活链接的信息
+
+
+#### Properties
+
+- Boolean NetworkingEnabled (read/write)
+> None
+
+- Boolean VpnEnabled (read/write)
+> None
+
+- String ActiveConnections (read)
+> 当前激活的连接信息
+
+- String Connections (read)
+> 所有连接信息
+
+- String Devices (read)
+> 网卡设备信息
+
+- Uint32 State (read)
+> None

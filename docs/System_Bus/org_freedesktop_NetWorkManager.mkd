@@ -1,0 +1,88 @@
+# /org/freedesktop/NetworkManager
+## Interfaces
+### org.freedesktop.NetworkManager
+#### Methods
+
+- GetAllDevices() -> (Array of [Object Path] device)
+> 获取所有设备的Object Path
+
+#### Properties
+
+- Array of [Object Path] ActiveConnections
+> 激活的链接
+
+- Array of [Object Path] AllDevices
+> 所有设备的Object Path
+
+- Object Path PrimaryConnection
+> 主链接Object Path
+```
+/org/freedesktop/NetworkManager/ActiveConnection/0
+```
+
+- String PrimaryConnectionType
+> 主链接协议类型：802-3-ethernet
+
+# /org/freedesktop/NetworkManager/Settings
+## Interfaces
+### org.freedesktop.NetworkManager.Settings
+#### Methods
+
+- AddConnection
+> None
+
+- AddConnectionUnsaved
+> None
+
+- GetConnectionByUuid
+> None
+
+- ListConnections() -> (Array of [Object Path] connection)
+> 列出所有的链接信息
+
+# /org/freedesktop/NetworkManager/ActiveConnection/0
+## Interfaces
+### org.freedesktop.NetworkManager.Connection.Active
+#### Properties
+
+- Object Path Dhcp4Config (read)
+> /org/freedesktop/NetworkManager/DHCP4Config/0
+
+# /org/freedesktop/NetworkManager/DHCP4Config/0
+## Interfaces
+### org.freedesktop.NetworkManager.Dhcp4Config
+#### Properties
+
+- Dict of {String, Variant} Options (read)
+> 
+```
+{'broadcast_address': '10.0.13.255',
+ 'dhcp_lease_time': '900',
+ 'dhcp_message_type': '5',
+ 'dhcp_server_identifier': '10.0.12.1',
+ 'domain_name': 'wh.sndu.cn',
+ 'domain_name_servers': '10.10.10.10',
+ 'expiry': '1503560556',
+ 'ip_address': '10.0.12.133',
+ 'network_number': '10.0.12.0',
+ 'next_server': '0.0.0.0',
+ 'requested_broadcast_address': '1',
+ 'requested_domain_name': '1',
+ 'requested_domain_name_servers': '1',
+ 'requested_domain_search': '1',
+ 'requested_host_name': '1',
+ 'requested_interface_mtu': '1',
+ 'requested_ms_classless_static_routes': '1',
+ 'requested_netbios_name_servers': '1',
+ 'requested_netbios_scope': '1',
+ 'requested_ntp_servers': '1',
+ 'requested_rfc3442_classless_static_routes': '1',
+ 'requested_routers': '1',
+ 'requested_static_routes': '1',
+ 'requested_subnet_mask': '1',
+ 'requested_time_offset': '1',
+ 'requested_wpad': '1',
+ 'routers': '10.0.12.1',
+ 'subnet_mask': '255.255.254.0'}
+```
+
