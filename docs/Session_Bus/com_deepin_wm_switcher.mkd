@@ -3,8 +3,11 @@
 ### com.deepin.wm_switcher
 #### Methods
 
+- currentWM() ->(String arg_0)
+> 获取当前ＷＭ的名字："deepin wm"
+
 - requestSwitchWM() -> ()
-> 切换窗口特效
+> 切换窗口特效 2D 3D
 
 #### Signals
 

@@ -4,8 +4,8 @@
 import os
 import dbus
 import unittest
-from dbusSystemInfo import DbusSystemInfo
-from dbusUDisks2 import DbusUDisks2
+from lib import DbusSystemInfo
+from lib import DbusUDisks2
 from subprocess import getoutput
 
 versionFileDeepin = "/etc/deepin-version"
