@@ -1,0 +1,18 @@
+# /com/deepin/dde/TrayManager
+## Interfaces
+### com.deepin.dde.TrayManager
+#### Methods
+
+- func (m *TrayManager) EnableNotification(win uint32, enable bool)
+> 这只托盘的窗口是否开启通知
+
+- func (m *TrayManager) GetName(win uint32) string
+> 取得窗口名称，入参win为窗口的xid值
+
+- func (m *TrayManager) Manage() bool
+> 获取托盘图标的管理权
+
+#### Properties
+
+- Array of [UInt32] TrayIcons (read)
+> 所有窗口的xid值
