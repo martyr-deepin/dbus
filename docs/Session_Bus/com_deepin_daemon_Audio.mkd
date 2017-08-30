@@ -7,10 +7,10 @@
 > None
 
 - func (a *Audio) SetDefaultSink(name string)
-> None
+> 设置音频输出
 
 - func (a *Audio) SetDefaultSource(name string)
-> None
+> 设置音频输入
 
 - func (a *Audio) SetPort(cardId uint32, portName string, direction int32) error
 > None
@@ -24,7 +24,7 @@
 > 1.525222
 
 - Object Path DefaultSink (read)
-> '/com/deepin/daemon/Audio/Sink1'
+> '/com/deepin/daemon/Audio/Sink1' 默认音频输出的Object Path
 
 - Object Path DefaultSource (read)
 > '/com/deepin/daemon/Audio/Source2'
@@ -37,11 +37,15 @@
 ### com.deepin.daemon.Audio.Sink
 #### Methods
 
+```
+默认音频输出
+```
+
 - func (s *Sink) GetMeter() *Meter
 > None
 
 - func (s *Sink) SetBalance(v float64, isPlay bool) error
-> None
+> 设置左右均衡
 
 - func (s *Sink) SetFade(v float64) error
 > None
@@ -50,10 +54,10 @@
 > 设置是否静音
 
 - func (s *Sink) SetPort(name string)
-> None
+> 设置Port输出
 
 - func (s *Sink) SetVolume(v float64, isPlay bool) error
-> None
+> 设置音量大小
 
 #### Properties
 
@@ -88,7 +92,7 @@
 > None
 
 - Struct of (String, String, Byte) ActivePort (read)
-> None
+> 当天输出音频激活的Port
 
 - UInt32 Card (read)
 > None
@@ -111,15 +115,15 @@
 > 设置是否静音
 
 - func (s *Sink) SetPort(name string)
-> None
+> 设置音频输入Port
 
 - func (s *Sink) SetVolume(v float64, isPlay bool) error
-> None
+> 设置输入音量
 
 #### Properties
 
 - Array of [Struct of (String, String, Byte) Ports (read)
-> None
+> 所有的Port
 
 - Boolean Mute (read)
 > 是否静音
@@ -149,7 +153,7 @@
 > None
 
 - Struct of (String, String, Byte) ActivePort (read)
-> None
+> 当前激活的音频输入Port
 
 - UInt32 Card (read)
 > None
