@@ -28,11 +28,23 @@ class Timedate:
         self.ifc_methods    = dbus.Interface(self.session_obj,
                 dbus_interface=self.interface)
 
-    def SetNTP(self, setbool):
-        self.ifc_methods.SetNTP(setbool)
+    def AddUserTimezone(self, timezone):
+        self.ifc_methods.AddUserTimezone(timezone)
+
+    def DeleteUserTimezone(self, timezone):
+        self.ifc_methods.DeleteUserTimezone(timezone)
+
+    def GetZoneInfo(self, timezone):
+        return self.ifc_methods.GetZoneInfo(timezone)
 
     def GetZoneList(self):
         return self.ifc_methods.GetZoneList()
+
+    def SetDate(self, year, month, day, hour, minute):
+        self.ifc_methods.SetDate(year, month, day, hour, minute, 0, 0)
+
+    def SetNTP(self, setbool):
+        self.ifc_methods.SetNTP(setbool)
 
     def SetTimezone(self, zoneinfo):
         self.ifc_methods.SetTimezone(zoneinfo)
@@ -45,14 +57,22 @@ class Timedate:
         return self.ifc_properties.Get(self.interface,
                 self.CanNTP)
 
-    def getTimezone(self):
+    def getLocalRTC(self):
         return self.ifc_properties.Get(self.interface,
-                self.Timezone)
+                self.LocalRTC)
+
+    def getNTP(self):
+        return self.ifc_properties.Get(self.interface,
+                self.NTP)
 
     def getUse24HourFormat(self):
         return self.ifc_properties.Get(self.interface,
                 self.Use24HourFormat)
 
-    def getNTP(self):
+    def getDSTOffset(self):
         return self.ifc_properties.Get(self.interface,
-                self.NTP)
+                self.DSTOffset)
+
+    def getTimezone(self):
+        return self.ifc_properties.Get(self.interface,
+                self.Timezone)
