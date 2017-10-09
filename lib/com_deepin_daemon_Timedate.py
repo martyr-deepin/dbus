@@ -4,7 +4,7 @@
 import os
 import dbus
 
-class Timedate:
+class DbusTimedate:
     def __init__(self):
         self.dbus_name = "com.deepin.daemon.Timedate"
         self.obj_path = "/com/deepin/daemon/Timedate"
