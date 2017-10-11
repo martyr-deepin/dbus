@@ -5,6 +5,7 @@ __ALL__ = [
         'DbusAudio',
         'DbusTrayManager',
         'DbusUDisks2',
+        'DbusKeybinding',
 
         'DbusSystemInfo']
 
@@ -19,4 +20,5 @@ from .org_freedesktop_UDisks2 import DbusUDisks2
 
 # Session Bus
 from .com_deepin_daemon_SystemInfo import DbusSystemInfo
+from .com_deepin_daemon_Keybinding import DbusKeybinding
 
