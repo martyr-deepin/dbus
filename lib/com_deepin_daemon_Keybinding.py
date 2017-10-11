@@ -24,6 +24,28 @@ class DbusKeybinding:
     def getNumLockState(self):
         return self.ifc_properties.Get(self.interface,
                                        self.NumLockState)
+    def SetNumLockState(self, int_value):
+        """
+        int_value:
+            0 关闭数字键盘
+            1 开启数字键盘
+        """
+        try:
+            self.ifc_methods.SetNumLockState(int_value)
+            return True
+        except:
+            return False
+
     def List(self):
-        return self.ifc_methods.List()
+        """
+        返回值：
+            类型：string
+            结构：json
+            [{"Id":"move-to-workspace-11","Type":3,"Accels":[],"Name":"Move to workspace 11"},
+            {"Id":"cycle-group","Type":3,"Accels":[],"Name":"Switch windows of an app directly"}]
+        """
+        try:
+            return True, self.ifc_methods.List()
+        except:
+            return False, None
 
