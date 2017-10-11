@@ -14,7 +14,6 @@ class DbusInputDevicesMouse:
         self.session_obj = self.session_bus.get_object(self.dbus_name,
                 self.obj_path)
         self.ifc_properties = dbus.Interface(self.session_obj,
-
                 dbus_interface=dbus.PROPERTIES_IFACE)
         self.ifc_methods    = dbus.Interface(self.session_obj,
                 dbus_interface=self.interface)
@@ -84,3 +83,28 @@ int MouseWorker::converToDouble(int value)
         """
         self.ifc_properties.Set(self.interface, self.DoubleClick,
                                 int_value)
+
+
+class DbusInputDevicesKeyboard:
+    def __init__(self):
+        self.dbus_name = "com.deepin.daemon.InputDevices"
+        self.obj_path = "/com/deepin/daemon/InputDevices/Keyboard"
+        self.interface = "com.deepin.daemon.InputDevices.Keyboard"
+
+        self.session_bus = dbus.SessionBus()
+        self.session_obj = self.session_bus.get_object(self.dbus_name,
+                self.obj_path)
+        self.ifc_properties = dbus.Interface(self.session_obj,
+                dbus_interface=dbus.PROPERTIES_IFACE)
+        self.ifc_methods    = dbus.Interface(self.session_obj,
+                dbus_interface=self.interface)
+
+        self.CurrentLayout = "CurrentLayout"
+
+    def getCurrentLayout(self):
+        return self.ifc_properties.Get(self.interface,
+                                       self.CurrentLayout)
+
+    def setCurrentLayout(self, string_layout):
+        self.ifc_properties.Set(self.interface, self.CurrentLayout,
+                                string_layout)
