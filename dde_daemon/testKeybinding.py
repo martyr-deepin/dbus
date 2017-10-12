@@ -57,6 +57,9 @@ class Keybingding(unittest.TestCase):
                                "move-to-workspace-left",
                                "move-to-workspace-right"]
 
+        cls.screenshot_sc = '<Control><Alt>A'
+        cls.new_screenshot_sc = '<Control><Alt>B'
+
     @classmethod
     def tearDownClass(cls):
         cls.dbus_Keybinding.SetNumLockState(cls.NumLockState)
@@ -141,6 +144,18 @@ class Keybingding(unittest.TestCase):
                 self.assertTrue(len(sc_item[self.shortcut_Name]) > 0)
                 self.assertTrue(len(sc_item[self.shortcut_Exec]) > 0)
 
+    def testCheckAvaliable(self):
+        rt, string_accel = self.dbus_Keybinding.CheckAvaliable(self.new_screenshot_sc)
+        self.assertTrue(rt)
+        self.assertTrue('' == string_accel)
+
+        rt, string_accel = self.dbus_Keybinding.CheckAvaliable(self.screenshot_sc)
+        self.assertFalse(rt)
+        self.assertFalse('' == string_accel)
+
+    def testModifyShortcut(self):
+        pass
+
 
 def suite():
     suite = unittest.TestSuite()
@@ -148,6 +163,7 @@ def suite():
     suite.addTest(Keybingding('testModifyNumLockState'))
     suite.addTest(Keybingding('testList'))
     suite.addTest(Keybingding('testListContent'))
+    suite.addTest(Keybingding('testCheckAvaliable'))
     return suite
 
 if __name__ == "__main__":

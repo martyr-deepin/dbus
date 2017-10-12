@@ -36,6 +36,26 @@ class DbusKeybinding:
         except:
             return False
 
+    def CheckAvaliable(self, string_accel):
+        """
+        检查快捷键是否可用：
+            返回值：(Boolean arg_1, String arg_2)
+            arg_1: True or False，是否可用
+            arg_2: 与之冲突的快捷键详细信息，是JSON字符串，如果没有冲突，则为空字符串
+
+            例子：
+            False, '{"Id":"screenshot","Type":0,"Accels":["\\u003cControl\\u003e\\u003cAlt\\u003eA"],"Name":"Screenshot"}'
+
+        参考：
+        signal KeyEvent(Boolean, String): 快捷键是否被按下，快捷键字符串accel
+        例如：accel值
+                <Control><Alt>A
+                <Control><Alt>a
+
+                control, alt, super, shift不区分大小写，Keybinding会转换成小写字母处理
+        """
+        return self.ifc_methods.CheckAvaliable(string_accel)
+
     def List(self):
         """
         返回值：
