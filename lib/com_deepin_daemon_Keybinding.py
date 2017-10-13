@@ -3,6 +3,7 @@
 
 import os
 import dbus
+import json
 
 class DbusKeybinding:
     def __init__(self):
@@ -36,7 +37,7 @@ class DbusKeybinding:
         except:
             return False
 
-    def CheckAvaliable(self, string_accel):
+    def LookupConflictingShortcut(self, string_accel):
         """
         检查快捷键是否可用：
             返回值：(Boolean arg_1, String arg_2)
@@ -56,7 +57,7 @@ class DbusKeybinding:
         """
         return self.ifc_methods.CheckAvaliable(string_accel)
 
-    def List(self):
+    def ListAllShortcuts(self):
         """
         返回值：
             类型：string
@@ -69,3 +70,32 @@ class DbusKeybinding:
         except:
             return False, None
 
+    def AddShortcutKeystroke(self, string_id, int_type, string_keystroke):
+        """
+        修改快捷键设置：
+            string_id:  screenshot
+            int_type:   0
+            string_keystroke:   <Control><Alt>A
+
+        返回值:
+            无
+        """
+        try:
+            self.ifc_methods.AddShortcutKeystroke(string_id, int_type, string_keystroke)
+            return True
+        except:
+            return False
+
+    def GetShortcut(self, string_id, string_type):
+        """
+        获取快捷键信息：
+        入参：
+            string_id:  快捷键Id值
+            string_type: 快捷键type值
+
+        返回值：
+            json字符串:
+                {"Id":"screenshot","Type":0,"Accels":["\u003cControl\u003e\u003cAlt\u003eA"],"Name":"截图"}
+            请参考文档keydetail.txt
+        """
+        return json.loads(self.ifc_methods.GetShortcut(string_id, string_type))

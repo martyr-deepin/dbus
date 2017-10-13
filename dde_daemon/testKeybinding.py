@@ -57,6 +57,8 @@ class Keybingding(unittest.TestCase):
                                "move-to-workspace-left",
                                "move-to-workspace-right"]
 
+        cls.screenshot_Id = 'screenshot'
+        cls.screenshot_Type = 0
         cls.screenshot_sc = '<Control><Alt>A'
         cls.new_screenshot_sc = '<Control><Alt>B'
 
@@ -89,13 +91,13 @@ class Keybingding(unittest.TestCase):
         rt = self.dbus_Keybinding.SetNumLockState(-100)
         self.assertFalse(rt)
 
-    def testList(self):
-        rt, shortcut_string = self.dbus_Keybinding.List()
+    def testListAllShortcuts(self):
+        rt, shortcut_string = self.dbus_Keybinding.ListAllShortcuts()
         self.assertTrue(rt)
         self.assertTrue(shortcut_string != None)
 
     def testListContent(self):
-        rt, shortcut_string = self.dbus_Keybinding.List()
+        rt, shortcut_string = self.dbus_Keybinding.ListAllShortcuts()
         shortcut_list = json.loads(shortcut_string)
 
         systemIdList = []
@@ -104,7 +106,8 @@ class Keybingding(unittest.TestCase):
             for sc_item in  shortcut_list:
                 if sc_item[self.shortcut_Type] != self.MEDIAKEY and sc_item[self.shortcut_Id] == i:
                     systemIdList.append(sc_item[self.shortcut_Id])
-                    self.assertTrue(len(sc_item[self.shortcut_Accels]) > 0)
+                    self.assertTrue(len(sc_item[self.shortcut_Accels]) > 0, "Id: %s accels: %s" %
+                                    (sc_item[self.shortcut_Id], sc_item[self.shortcut_Accels]))
                     self.assertTrue(len(sc_item[self.shortcut_Name]) > 0)
                     break
 
@@ -144,26 +147,35 @@ class Keybingding(unittest.TestCase):
                 self.assertTrue(len(sc_item[self.shortcut_Name]) > 0)
                 self.assertTrue(len(sc_item[self.shortcut_Exec]) > 0)
 
-    def testCheckAvaliable(self):
-        rt, string_accel = self.dbus_Keybinding.CheckAvaliable(self.new_screenshot_sc)
+    def testLookupConflictingShortcut(self):
+        rt, string_accel = self.dbus_Keybinding.LookupConflictingShortcut(self.new_screenshot_sc)
         self.assertTrue(rt)
         self.assertTrue('' == string_accel)
 
-        rt, string_accel = self.dbus_Keybinding.CheckAvaliable(self.screenshot_sc)
+        rt, string_accel = self.dbus_Keybinding.LookupConflictingShortcut(self.screenshot_sc)
         self.assertFalse(rt)
         self.assertFalse('' == string_accel)
 
     def testModifyShortcut(self):
-        pass
+        #rt = self.dbus_Keybinding.AddShortcutKeystroke(self.screenshot_Id, self.screenshot_Type,
+        #                                               self.screenshot_sc)
+        #self.assertTrue(rt)
+
+        info = self.dbus_Keybinding.GetShortcut(self.screenshot_Id, self.screenshot_Type)
+        accel = info[self.shortcut_Accels]
+        self.assertTrue(accel[0] == self.screenshot_sc, "accel: %s \
+                        self.screenshot_sc: %s" %
+                        (accel[0], self.screenshot_sc))
 
 
 def suite():
     suite = unittest.TestSuite()
     suite.addTest(Keybingding('testNumLockState'))
     suite.addTest(Keybingding('testModifyNumLockState'))
-    suite.addTest(Keybingding('testList'))
+    suite.addTest(Keybingding('testListAllShortcuts'))
     suite.addTest(Keybingding('testListContent'))
-    suite.addTest(Keybingding('testCheckAvaliable'))
+    suite.addTest(Keybingding('testLookupConflictingShortcut'))
+    suite.addTest(Keybingding('testModifyShortcut'))
     return suite
 
 if __name__ == "__main__":
