@@ -72,7 +72,7 @@ class DbusKeybinding:
 
     def AddShortcutKeystroke(self, string_id, int_type, string_keystroke):
         """
-        修改快捷键设置：
+        添加快捷键设置：
             string_id:  screenshot
             int_type:   0
             string_keystroke:   <Control><Alt>A
@@ -82,6 +82,22 @@ class DbusKeybinding:
         """
         try:
             self.ifc_methods.AddShortcutKeystroke(string_id, int_type, string_keystroke)
+            return True
+        except:
+            return False
+
+    def DeleteShortcutKeystroke(self, string_id, int_type, string_keystroke):
+        """
+        删除快捷键：
+            string_id:  screenshot
+            int_type:   0
+            string_keystroke:   <Control><Alt>A
+
+        返回值：
+            无
+        """
+        try:
+            self.ifc_methods.DeleteShortcutKeystroke(string_id, int_type, string_keystroke)
             return True
         except:
             return False
@@ -99,3 +115,18 @@ class DbusKeybinding:
             请参考文档keydetail.txt
         """
         return json.loads(self.ifc_methods.GetShortcut(string_id, string_type))
+
+    def Disable(self, string_id, string_type):
+        """
+        删除所有快捷键：
+            string_id:      快捷键Id值
+            string_type:    快捷键type值
+
+        返回值：
+            无
+        """
+        try:
+            self.ifc_methods.Disable(string_id, string_type)
+            return True
+        except:
+            return False
