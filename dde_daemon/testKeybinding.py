@@ -154,7 +154,7 @@ class Keybingding(unittest.TestCase):
         self.assertTrue('' == string_accel)
 
         rt, string_accel = self.dbus_Keybinding.LookupConflictingShortcut(self.screenshot_sc)
-        self.assertFalse(rt)
+        self.assertTrue(rt)
         self.assertFalse('' == string_accel)
 
     def testModifyShortcut(self):
@@ -167,6 +167,7 @@ class Keybingding(unittest.TestCase):
         rt = self.dbus_Keybinding.AddShortcutKeystroke(self.screenshot_Id, self.screenshot_Type,
                                                        self.new_screenshot_sc)
         self.assertTrue(rt)
+        sleep(2)
 
         info = self.dbus_Keybinding.GetShortcut(self.screenshot_Id, self.screenshot_Type)
         accel = info[self.shortcut_Accels]
@@ -180,18 +181,24 @@ class Keybingding(unittest.TestCase):
         rt = self.dbus_Keybinding.DeleteShortcutKeystroke(self.screenshot_Id, self.screenshot_Type,
                                                      self.new_screenshot_sc)
         self.assertTrue(rt)
-
-    def testDisable(self):
-        sleep(1)
+        sleep(2)
         info = self.dbus_Keybinding.GetShortcut(self.screenshot_Id, self.screenshot_Type)
         accel = info[self.shortcut_Accels]
-        self.assertTrue(len(accel) == 1)
+        self.assertTrue(len(accel) == 1, "accel: %s" % str(accel))
         self.assertTrue(self.new_screenshot_sc not in accel)
         self.assertTrue(self.screenshot_sc in accel)
 
-        rt = self.dbus_Keybinding.Disable(self.screenshot_Id, self.screenshot_Type)
+    def testClearShortcutKeystrokes(self):
+        sleep(2)
+        info = self.dbus_Keybinding.GetShortcut(self.screenshot_Id, self.screenshot_Type)
+        accel = info[self.shortcut_Accels]
+        self.assertTrue(len(accel) == 1, "accel: %s" % str(accel))
+        self.assertTrue(self.new_screenshot_sc not in accel)
+        self.assertTrue(self.screenshot_sc in accel)
+
+        rt = self.dbus_Keybinding.ClearShortcutKeystrokes(self.screenshot_Id, self.screenshot_Type)
         self.assertTrue(rt)
-        sleep(1)
+        sleep(2)
         info = self.dbus_Keybinding.GetShortcut(self.screenshot_Id, self.screenshot_Type)
         accel = info[self.shortcut_Accels]
         self.assertTrue(len(accel) == 0)
@@ -216,7 +223,7 @@ def suite():
     suite.addTest(Keybingding('testListContent'))
     suite.addTest(Keybingding('testLookupConflictingShortcut'))
     suite.addTest(Keybingding('testModifyShortcut'))
-    suite.addTest(Keybingding('testDisable'))
+    suite.addTest(Keybingding('testClearShortcutKeystrokes'))
     return suite
 
 if __name__ == "__main__":

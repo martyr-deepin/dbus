@@ -45,7 +45,7 @@ class DbusKeybinding:
             arg_2: 与之冲突的快捷键详细信息，是JSON字符串，如果没有冲突，则为空字符串
 
             例子：
-            False, '{"Id":"screenshot","Type":0,"Accels":["\\u003cControl\\u003e\\u003cAlt\\u003eA"],"Name":"Screenshot"}'
+            '{"Id":"screenshot","Type":0,"Accels":["\\u003cControl\\u003e\\u003cAlt\\u003eA"],"Name":"Screenshot"}'
 
         参考：
         signal KeyEvent(Boolean, String): 快捷键是否被按下，快捷键字符串accel
@@ -55,7 +55,7 @@ class DbusKeybinding:
 
                 control, alt, super, shift不区分大小写，Keybinding会转换成小写字母处理
         """
-        return self.ifc_methods.CheckAvaliable(string_accel)
+        return True, self.ifc_methods.LookupConflictingShortcut(string_accel)
 
     def ListAllShortcuts(self):
         """
@@ -66,7 +66,7 @@ class DbusKeybinding:
             {"Id":"cycle-group","Type":3,"Accels":[],"Name":"Switch windows of an app directly"}]
         """
         try:
-            return True, self.ifc_methods.List()
+            return True, self.ifc_methods.ListAllShortcuts()
         except:
             return False, None
 
@@ -116,7 +116,7 @@ class DbusKeybinding:
         """
         return json.loads(self.ifc_methods.GetShortcut(string_id, string_type))
 
-    def Disable(self, string_id, string_type):
+    def ClearShortcutKeystrokes(self, string_id, string_type):
         """
         删除所有快捷键：
             string_id:      快捷键Id值
@@ -126,7 +126,7 @@ class DbusKeybinding:
             无
         """
         try:
-            self.ifc_methods.Disable(string_id, string_type)
+            self.ifc_methods.ClearShortcutKeystrokes(string_id, string_type)
             return True
         except:
             return False
