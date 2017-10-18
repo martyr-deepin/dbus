@@ -7,7 +7,6 @@ import json
 import unittest
 from lib import DbusKeybinding
 from subprocess import getoutput
-from time import sleep
 
 class Keybingding(unittest.TestCase):
     @classmethod
@@ -155,7 +154,7 @@ class Keybingding(unittest.TestCase):
 
         rt, string_accel = self.dbus_Keybinding.LookupConflictingShortcut(self.screenshot_sc)
         self.assertTrue(rt)
-        self.assertFalse('' == string_accel)
+        self.assertFalse('' == string_accel, "string_accel: %s" % string_accel)
 
     def testModifyShortcut(self):
         info = self.dbus_Keybinding.GetShortcut(self.screenshot_Id, self.screenshot_Type)
@@ -167,7 +166,6 @@ class Keybingding(unittest.TestCase):
         rt = self.dbus_Keybinding.AddShortcutKeystroke(self.screenshot_Id, self.screenshot_Type,
                                                        self.new_screenshot_sc)
         self.assertTrue(rt)
-        sleep(2)
 
         info = self.dbus_Keybinding.GetShortcut(self.screenshot_Id, self.screenshot_Type)
         accel = info[self.shortcut_Accels]
@@ -181,7 +179,6 @@ class Keybingding(unittest.TestCase):
         rt = self.dbus_Keybinding.DeleteShortcutKeystroke(self.screenshot_Id, self.screenshot_Type,
                                                      self.new_screenshot_sc)
         self.assertTrue(rt)
-        sleep(2)
         info = self.dbus_Keybinding.GetShortcut(self.screenshot_Id, self.screenshot_Type)
         accel = info[self.shortcut_Accels]
         self.assertTrue(len(accel) == 1, "accel: %s" % str(accel))
@@ -189,7 +186,6 @@ class Keybingding(unittest.TestCase):
         self.assertTrue(self.screenshot_sc in accel)
 
     def testClearShortcutKeystrokes(self):
-        sleep(2)
         info = self.dbus_Keybinding.GetShortcut(self.screenshot_Id, self.screenshot_Type)
         accel = info[self.shortcut_Accels]
         self.assertTrue(len(accel) == 1, "accel: %s" % str(accel))
@@ -198,7 +194,6 @@ class Keybingding(unittest.TestCase):
 
         rt = self.dbus_Keybinding.ClearShortcutKeystrokes(self.screenshot_Id, self.screenshot_Type)
         self.assertTrue(rt)
-        sleep(2)
         info = self.dbus_Keybinding.GetShortcut(self.screenshot_Id, self.screenshot_Type)
         accel = info[self.shortcut_Accels]
         self.assertTrue(len(accel) == 0)
