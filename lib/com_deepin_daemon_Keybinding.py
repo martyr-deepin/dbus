@@ -130,3 +130,53 @@ class DbusKeybinding:
             return True
         except:
             return False
+
+    def AddCustomShortcut(self, string_name, string_action, string_keystroke):
+        """
+        添加自定义快捷键：
+        入参：
+            string_name:    快捷键name
+            string_action:  执行脚本全路径
+            string_keystroke:   SelectKeystroke抓取到的快捷键
+
+        返回值：
+            无
+
+        说明：
+            控制中心通过监控dbus的signal Added来更新前台显示内容
+        """
+        try:
+            return True, self.ifc_methods.AddCustomShortcut(string_name, string_action, string_keystroke)
+        except:
+            return False, None, None
+
+    def DeleteCustomShortcut(self, string_id):
+        """
+        删除自定义快捷键
+        入参：
+            string_id:  自定义快捷键id值
+
+        返回值：
+            无
+        """
+        try:
+            self.ifc_methods.DeleteCustomShortcut(string_id)
+            return True
+        except:
+            return False
+
+    def ModifyCustomShortcut(self, string_id, string_name, string_action, string_keystroke):
+        """
+        修改自定义快捷键
+        入参：
+            string_id:  快捷键的id值
+            string_name:    快捷键的名称
+            string_name:    快捷键执行脚本的全路径
+            string_keystroke:   抓取到的快捷键
+        """
+        try:
+            self.ifc_methods.ModifyCustomShortcut(string_id, string_name, string_action,
+                                                  string_keystroke)
+            return True
+        except:
+            return False

@@ -62,6 +62,8 @@ class Keybingding(unittest.TestCase):
         cls.screenshot_sc = '<Control><Alt>A'
         cls.new_screenshot_sc = '<Control><Alt>B'
 
+        cls.custom_shortcut_id = ''
+
     @classmethod
     def tearDownClass(cls):
         cls.dbus_Keybinding.SetNumLockState(cls.NumLockState)
@@ -209,6 +211,61 @@ class Keybingding(unittest.TestCase):
         self.assertTrue(self.new_screenshot_sc not in accel)
         self.assertTrue(self.screenshot_sc in accel)
 
+    def testAddCustomShortcut(self):
+        custom_sc_list = self.getCustomShortcut()
+
+        add_name = "自定义zidingyi"
+        add_action = "/usr/bin/deepin-image-viewer"
+        add_keystroke = "<Control><Alt>V"
+        rt, (self.custom_shortcut_id, int_type) = self.dbus_Keybinding.AddCustomShortcut(add_name, add_action, add_keystroke)
+        custom_shortcut_id = self.custom_shortcut_id
+        self.assertTrue(rt)
+        self.assertTrue(len(custom_shortcut_id.replace('-', '')) == self.CUSTOM_ID_LENGTH, "custom_shortcut_id:\
+    %s" % str(self.custom_shortcut_id))
+
+    def testDeleteCustomShortcut(self):
+        custom_sc_item = self.getCustomShortcutByName("自定义zidingyi")
+        self.assertTrue(custom_sc_item != None)
+
+        custom_sc_id = custom_sc_item[self.shortcut_Id]
+        rt = self.dbus_Keybinding.DeleteCustomShortcut(custom_sc_id)
+        self.assertTrue(rt)
+        custom_sc_item = self.getCustomShortcutById(custom_sc_id)
+        self.assertTrue(custom_sc_item == None)
+
+    def getCustomShortcut(self):
+        """
+        查询自定义快捷键信息，返回类型为list
+        """
+        rt, shortcut_string = self.dbus_Keybinding.ListAllShortcuts()
+        shortcut_list = json.loads(shortcut_string)
+
+        customshortcut_list = []
+
+        for sc_item in shortcut_list:
+            if sc_item[self.shortcut_Type] != self.MEDIAKEY and \
+               sc_item[self.shortcut_Type] == self.CUSTOMKEY:
+                customshortcut_list.append(sc_item)
+
+        return customshortcut_list
+
+    def getCustomShortcutById(self, string_id):
+        custom_sc_list = self.getCustomShortcut()
+
+        for sc_item in  custom_sc_list:
+            if sc_item[self.shortcut_Id] == string_id:
+                return sc_item
+
+        return None
+
+    def getCustomShortcutByName(self, string_name):
+        custom_sc_list = self.getCustomShortcut()
+
+        for sc_item in  custom_sc_list:
+            if sc_item[self.shortcut_Name] == string_name:
+                return sc_item
+
+        return None
 
 def suite():
     suite = unittest.TestSuite()
@@ -219,6 +276,8 @@ def suite():
     suite.addTest(Keybingding('testLookupConflictingShortcut'))
     suite.addTest(Keybingding('testModifyShortcut'))
     suite.addTest(Keybingding('testClearShortcutKeystrokes'))
+    suite.addTest(Keybingding('testAddCustomShortcut'))
+    suite.addTest(Keybingding('testDeleteCustomShortcut'))
     return suite
 
 if __name__ == "__main__":

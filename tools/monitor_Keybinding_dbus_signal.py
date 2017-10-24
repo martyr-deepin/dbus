@@ -31,6 +31,7 @@ def signal_handler_Added(string_name, int_type):
         string_id:  快捷键id值，长度32
         int_type:   快捷键type值
     """
+    print("Added:", end=' ')
     print(string_name, end=',')
     print(int_32)
 
