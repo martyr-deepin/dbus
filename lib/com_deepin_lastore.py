@@ -11,7 +11,7 @@ class Lastore:
 
         self.systembus = dbus.Systembus()
         self.systemobj = self.systembus.getobject(self.servicename, self.path)
-  
+
         self.ifc_properties = dbus.Interface(self.system_obj, dbus_interface = dbus.PROPERTIES_IFACE)
         self.ifc_method     = dbus.Interface(self.system_obj, dbus_interface = self.method)
 
@@ -70,5 +70,5 @@ class Lastore:
     def GetUpgradableApps(self):
         '''
         返回可更新的包
-        '''      
+        '''
         return self.ifc_properties.Get(self.method, self.properties_UpgradableApps)

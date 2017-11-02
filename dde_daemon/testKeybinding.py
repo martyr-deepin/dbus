@@ -223,8 +223,26 @@ class Keybingding(unittest.TestCase):
         self.assertTrue(len(custom_shortcut_id.replace('-', '')) == self.CUSTOM_ID_LENGTH, "custom_shortcut_id:\
     %s" % str(self.custom_shortcut_id))
 
-    def testDeleteCustomShortcut(self):
+    def testModifyCustomShortcut(self):
         custom_sc_item = self.getCustomShortcutByName("自定义zidingyi")
+        self.assertTrue(custom_sc_item != None)
+        custom_sc_id = custom_sc_item[self.shortcut_Id]
+
+        modify_name = "自定义zidingyi_modify"
+        modify_action = "/usr/bin/deepin-terminal"
+        modify_keystroke = "<Control><Alt>M"
+        rt = self.dbus_Keybinding.ModifyCustomShortcut(custom_sc_id, modify_name, modify_action, modify_keystroke)
+        self.assertTrue(rt)
+
+        custom_sc_item = self.getCustomShortcutByName("自定义zidingyi_modify")
+        self.assertTrue(custom_sc_item != None)
+        self.assertTrue(custom_sc_item[self.shortcut_Id] == custom_sc_id)
+        self.assertTrue(custom_sc_item[self.shortcut_Name] == modify_name)
+        self.assertTrue(custom_sc_item[self.shortcut_Exec] == modify_action)
+        self.assertTrue(custom_sc_item[self.shortcut_Accels][0] == modify_keystroke)
+
+    def testDeleteCustomShortcut(self):
+        custom_sc_item = self.getCustomShortcutByName("自定义zidingyi_modify")
         self.assertTrue(custom_sc_item != None)
 
         custom_sc_id = custom_sc_item[self.shortcut_Id]
@@ -277,6 +295,7 @@ def suite():
     suite.addTest(Keybingding('testModifyShortcut'))
     suite.addTest(Keybingding('testClearShortcutKeystrokes'))
     suite.addTest(Keybingding('testAddCustomShortcut'))
+    suite.addTest(Keybingding('testModifyCustomShortcut'))
     suite.addTest(Keybingding('testDeleteCustomShortcut'))
     return suite
 
