@@ -6,6 +6,7 @@ __ALL__ = [
         'DbusTrayManager',
         'DbusUDisks2',
         'DbusKeybinding',
+        'DbusJobUpdateSource',
 
         'DbusSystemInfo']
 
@@ -17,6 +18,7 @@ from .com_deepin_daemon_Mime import DbusMime
 from .com_deepin_daemon_Audio import DbusAudio
 from .com_deepin_dde_TrayManager import DbusTrayManager
 from .org_freedesktop_UDisks2 import DbusUDisks2
+from .com_deepin_lastore import DbusJobUpdateSource
 
 # Session Bus
 from .com_deepin_daemon_SystemInfo import DbusSystemInfo

@@ -72,3 +72,36 @@ class Lastore:
         返回可更新的包
         '''
         return self.ifc_properties.Get(self.method, self.properties_UpgradableApps)
+
+    def UpdateSource(self):
+        '''
+        返回更新job的Object path，在后台触发更新apt-get update操作
+        '''
+        return self.ifc_method.UpdateSource()
+
+class DbusJobUpdateSource:
+    def __init__(self):
+        self.dbus_name = 'com.deepin.lastore'
+        self.dbus_path = '/com/deepin/lastore/Jobupdate_source'
+        self.dbus_ifc  = 'com.deepin.lastore.Job'
+
+        self.system_bus = dbus.SystemBus()
+        self.system_obj = self.system_bus.get_object(self.dbus_name,
+                self.dbus_path)
+        self.ifc_properties = dbus.Interface(self.system_obj,
+                dbus_interface=dbus.PROPERTIES_IFACE)
+        self.ifc_methods = dbus.Interface(self.system_obj,
+                dbus_interface=self.dbus_ifc)
+
+    def getStatus(self):
+        try:
+            return True, self.ifc_properties.Get(self.dbus_ifc,
+                                           "Status")
+        except:
+            return False, None
+
+    def String(self):
+        try:
+            return True, self.ifc_methods.String()
+        except:
+            return False, None
