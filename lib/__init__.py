@@ -5,10 +5,11 @@ __ALL__ = [
         'DbusAudio',
         'DbusTrayManager',
         'DbusUDisks2',
-        'DbusKeybinding',
         'DbusJobUpdateSource',
 
-        'DbusSystemInfo']
+        'DbusSystemInfo',
+        'DbusKeybinding',
+        'DbusDaemonDock']
 
 
 # System Bus
@@ -23,4 +24,4 @@ from .com_deepin_lastore import DbusJobUpdateSource
 # Session Bus
 from .com_deepin_daemon_SystemInfo import DbusSystemInfo
 from .com_deepin_daemon_Keybinding import DbusKeybinding
-
+from .com_deepin_dde_daemon_Dock import DbusDaemonDock
