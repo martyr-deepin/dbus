@@ -104,11 +104,11 @@ class DbusDaemonDock:
         """
         return self.ifc_methods.RequestDock(desktopFilePath, num)
 
-    def RequestUnDock(self, desktopFilePath):
+    def RequestUndock(self, desktopFilePath):
         """
         取消驻留
         """
-        return self.ifc_methods.RequestUnDock(desktopFilePath)
+        return self.ifc_methods.RequestUndock(desktopFilePath)
 
     def getDockedApps(self):
         return self.ifc_properties.Get(self.interface,

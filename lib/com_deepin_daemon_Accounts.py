@@ -60,3 +60,29 @@ class User:
 
         if 0 == pid:
             self.ifc_methods.SetPassword(pw)
+
+
+class DbusImageBlur:
+    def __init__(self):
+        self.dbus_name = "com.deepin.daemon.Accounts"
+        self.obj_path  = "/com/deepin/daemon/ImageBlur"
+        self.interface = "com.deepin.daemon.ImageBlur"
+
+        self.system_bus = dbus.SystemBus()
+        self.system_obj = self.system_bus.get_object(self.dbus_name,
+                self.obj_path)
+        self.ifc_properties = dbus.Interface(self.system_obj,
+                dbus_interface=dbus.PROPERTIES_IFACE)
+        self.ifc_methods    = dbus.Interface(self.system_obj,
+                dbus_interface=self.interface)
+
+    def Get(self, imagePath):
+        """
+        获取模糊图片路径
+        入参：
+            imagePath: 需要模糊图片的绝对路径
+
+        返回值：
+            模糊图片的绝对路径
+        """
+        return self.ifc_methods.Get(imagePath)

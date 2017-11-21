@@ -176,3 +176,12 @@
 
 - uint64 LoginTime (read)
 > None
+
+
+# /com/deepin/daemon/ImageBlur
+## Interfaces
+### com.deepin.daemon.ImageBlur
+#### Methods
+
+- func (ib *ImageBlur) Get(file string) string
+> 输入图片绝对路径，获取模糊图片路径 /var/cache/image-blur/
