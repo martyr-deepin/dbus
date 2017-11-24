@@ -6,6 +6,9 @@
 - func (m *Manager) Delete(ty, name string) error
 > None
 
+- func (m *Manager) GetScaleFactor() float64
+> 获取屏幕缩放值
+
 - func (m *Manager) List(ty string) (string, error)
 > 入参：ty  
     const (
@@ -27,6 +30,9 @@
 
 - func (m *Manager) Set(ty, value string) error
 > None
+
+- func (m *Manager) SetScaleFactor(scale float64) error
+> 设置屏幕所放值
 
 - func (m *Manager) Show(ty, name string) (string, error)
 > 入参：ty, name -> "gtk", "deepin"
