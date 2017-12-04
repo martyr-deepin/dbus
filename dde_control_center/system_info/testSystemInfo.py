@@ -60,15 +60,15 @@ class SystemInfo(unittest.TestCase):
     def testPropertiesDiskCap(self):
         udisk_value = self.dbus_udisk2.GetManagedObjects()
 
-def suite():
-    suite = unittest.TestSuite()
-    suite.addTest(SystemInfo('testVersionFileExist'))
-    suite.addTest(SystemInfo('testPropertiesSystemType'))
-    suite.addTest(SystemInfo('testPropertiesDistroDesc'))
-    suite.addTest(SystemInfo('testPropertiesDistroID'))
-    suite.addTest(SystemInfo('testPropertiesDistroVer'))
-    suite.addTest(SystemInfo('testPropertiesDiskCap'))
-    return suite
+    def suite():
+        suite = unittest.TestSuite()
+        suite.addTest(SystemInfo('testVersionFileExist'))
+        suite.addTest(SystemInfo('testPropertiesSystemType'))
+        suite.addTest(SystemInfo('testPropertiesDistroDesc'))
+        suite.addTest(SystemInfo('testPropertiesDistroID'))
+        suite.addTest(SystemInfo('testPropertiesDistroVer'))
+        suite.addTest(SystemInfo('testPropertiesDiskCap'))
+        return suite
 
 def getVersionFromDeepin(filePath):
     pass
@@ -90,4 +90,4 @@ def parseInfoFile(filePath, delim):
     return ret
 
 if __name__ == "__main__":
-    unittest.main(defaultTest = 'suite')
+    unittest.TextTestRunner().run(SystemInfo.suite())

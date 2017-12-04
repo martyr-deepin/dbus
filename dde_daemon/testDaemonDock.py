@@ -80,14 +80,14 @@ class DaemonDock(unittest.TestCase):
         self.assertTrue(rt)
         self.assertTrue(id_list[0] == 'deepin-image-viewer')
 
-def suite():
-    suite = unittest.TestSuite()
-    suite.addTest(DaemonDock('testGetEntryIDs'))
-    suite.addTest(DaemonDock('testMoveEntry'))
-    suite.addTest(DaemonDock('testRequestDock'))
-    suite.addTest(DaemonDock('testRequestDockNumber'))
+    def suite():
+        suite = unittest.TestSuite()
+        suite.addTest(DaemonDock('testGetEntryIDs'))
+        suite.addTest(DaemonDock('testMoveEntry'))
+        suite.addTest(DaemonDock('testRequestDock'))
+        suite.addTest(DaemonDock('testRequestDockNumber'))
 
-    return suite
+        return suite
 
 if __name__ == "__main__":
-    unittest.main(defaultTest = 'suite')
+    unittest.TextTestRunner().run(DaemonDock.suite())

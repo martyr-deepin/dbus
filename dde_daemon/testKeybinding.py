@@ -8,7 +8,7 @@ import unittest
 from lib import DbusKeybinding
 from subprocess import getoutput
 
-class Keybingding(unittest.TestCase):
+class Keybinding(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.dbus_Keybinding = DbusKeybinding()
@@ -285,19 +285,19 @@ class Keybingding(unittest.TestCase):
 
         return None
 
-def suite():
-    suite = unittest.TestSuite()
-    suite.addTest(Keybingding('testNumLockState'))
-    suite.addTest(Keybingding('testModifyNumLockState'))
-    suite.addTest(Keybingding('testListAllShortcuts'))
-    suite.addTest(Keybingding('testListContent'))
-    suite.addTest(Keybingding('testLookupConflictingShortcut'))
-    suite.addTest(Keybingding('testModifyShortcut'))
-    suite.addTest(Keybingding('testClearShortcutKeystrokes'))
-    suite.addTest(Keybingding('testAddCustomShortcut'))
-    suite.addTest(Keybingding('testModifyCustomShortcut'))
-    suite.addTest(Keybingding('testDeleteCustomShortcut'))
-    return suite
+    def suite():
+        suite = unittest.TestSuite()
+        suite.addTest(Keybinding('testNumLockState'))
+        suite.addTest(Keybinding('testModifyNumLockState'))
+        suite.addTest(Keybinding('testListAllShortcuts'))
+        suite.addTest(Keybinding('testListContent'))
+        suite.addTest(Keybinding('testLookupConflictingShortcut'))
+        suite.addTest(Keybinding('testModifyShortcut'))
+        suite.addTest(Keybinding('testClearShortcutKeystrokes'))
+        suite.addTest(Keybinding('testAddCustomShortcut'))
+        suite.addTest(Keybinding('testModifyCustomShortcut'))
+        suite.addTest(Keybinding('testDeleteCustomShortcut'))
+        return suite
 
 if __name__ == "__main__":
-    unittest.main(defaultTest = 'suite')
+    unittest.TextTestRunner().run(Keybinding.suite())
