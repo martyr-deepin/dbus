@@ -54,8 +54,8 @@ class DbusDisplay:
         """
         self.ifc_methods.SetBrightness(d_value)
 
-class DbusDisplayMonitorVGA(object_path):
-    def __init__(self):
+class DbusDisplayMonitorVGA:
+    def __init__(self, object_path):
         self.dbus_name = 'com.deepin.daemon.Display'
         self.dbus_path = object_path
         self.dbus_ifc  = 'com.deepin.daemon.Display.Monitor'
@@ -81,6 +81,27 @@ class DbusDisplayMonitorVGA(object_path):
         """
         return self.ifc_properties.Get(self.dbus_ifc,
                 "Rotations")
+
+    def getRotation(self):
+        """
+        获取当前的rotation值
+        """
+        return self.ifc_properties.Get(self.dbus_ifc,
+                "Rotation")
+
+    def getHeight(self):
+        """
+        获取屏幕高度
+        """
+        return self.ifc_properties.Get(self.dbus_ifc,
+                "Height")
+
+    def getWidth(self):
+        """
+        获取屏幕宽度
+        """
+        return self.ifc_properties.Get(self.dbus_ifc,
+                "Width")
 
     def SetRotation(self, rotation):
         """

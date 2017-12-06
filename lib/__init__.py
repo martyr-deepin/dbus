@@ -9,8 +9,9 @@ __ALL__ = [
 
         'DbusSystemInfo',
         'DbusKeybinding',
-        'DbusDaemonDock']
-
+        'DbusDaemonDock',
+        'DbusDisplay',
+        'DbusDisplayMonitorVGA']
 
 # System Bus
 from .com_deepin_daemon_Grub2 import DbusGrub2
@@ -25,3 +26,4 @@ from .com_deepin_lastore import DbusJobUpdateSource
 from .com_deepin_daemon_SystemInfo import DbusSystemInfo
 from .com_deepin_daemon_Keybinding import DbusKeybinding
 from .com_deepin_dde_daemon_Dock import DbusDaemonDock
+from .com_deepin_daemon_Display import DbusDisplay, DbusDisplayMonitorVGA
