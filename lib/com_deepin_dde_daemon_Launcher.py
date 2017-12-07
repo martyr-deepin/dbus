@@ -127,7 +127,7 @@ class DbusDaemonLauncher:
             self.ifc_methods.SetDisableScaling(app_name, bool_value)
             return True
         except Exception as e:
-            print("Unexpected Error: {}".format(e))
+            #print("Unexpected Error: {}".format(e))
             return False
 
     def getFullscreen(self):
