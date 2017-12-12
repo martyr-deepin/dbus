@@ -5,9 +5,11 @@ import unittest
 import sys
 
 from dde_control_center.system_info import SystemInfo
-from dde_daemon import DaemonDock, Keybinding, Display
+from dde_daemon import DaemonDock, Keybinding, Display,\
+                       DaemonLauncher, SoundEffect
 
-testClasses = (SystemInfo, DaemonDock, Keybinding, Display)
+testClasses = (SystemInfo, DaemonDock, Keybinding, Display,
+               DaemonLauncher, SoundEffect)
 
 suitelist = []
 
