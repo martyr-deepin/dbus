@@ -24,8 +24,6 @@ class DbusSoundEffect:
         self.EventBatteryLow    = "power-unplug-battery-low"
         self.EventVolumeChanged = "audio-volume-change"
         self.EventIconToDesktop = "x-deepin-app-sent-to-desktop"
-        self.EventLogin         = "desktop-login"
-        self.EventLogout        = "desktop-logout"
         self.EventShutdown      = "system-shutdown"
         self.EventWakeup        = "suspend-resume"
 
@@ -40,13 +38,24 @@ class DbusSoundEffect:
         self.EventDeviceAdded   = "device-added"
         self.EventDeviceRemoved = "device-removed"
 
+        self.EventTrashEmpty    = "trash-empty"
+        self.EventCameraShutter = "camera-shutter"
+        self.EventMessage       = "message"
+        self.EventCompleteCopy  = "complete-copy"
+        self.EventCompletePrint = "complete-print"
+
+        self.EventDialogErrorCritical = "dialog-error-critical"
+        self.EventDialogError         = "dialog-error"
+        self.EventDialogErrorSerious  = "dialog-error-serious"
+
+        self.EventScreenCaptureComplete = "screen-capture-complete"
+        self.EventScreenCapture = "screen-capture"
+
         self.EventList = [self.EventPowerPlug,
                           self.EventPowerUnplug,
                           self.EventBatteryLow,
                           self.EventVolumeChanged,
                           self.EventIconToDesktop,
-                          self.EventLogin,
-                          self.EventLogout,
                           self.EventShutdown,
                           self.EventWakeup,
                           self.EventPowerUnplugBatteryLow,
@@ -57,7 +66,17 @@ class DbusSoundEffect:
                           self.EventSystemShutdown,
                           self.EventSuspendResume,
                           self.EventDeviceAdded,
-                          self.EventDeviceRemoved]
+                          self.EventDeviceRemoved,
+                          self.EventTrashEmpty,
+                          self.EventCameraShutter,
+                          self.EventMessage,
+                          self.EventCompleteCopy,
+                          self.EventCompletePrint,
+                          self.EventDialogErrorCritical,
+                          self.EventDialogError,
+                          self.EventDialogErrorSerious,
+                          self.EventScreenCaptureComplete,
+                          self.EventScreenCapture]
 
 
     def PlaySystemSound(self, event_type):
