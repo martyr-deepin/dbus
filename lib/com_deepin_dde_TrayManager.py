@@ -18,6 +18,9 @@ class DbusTrayManager:
                 dbus_interface=self.dbus_ifc)
 
     def getTrayIcons(self):
+        """
+        托盘应用窗口id，返回list
+        """
         return self.ifc_properties.Get(self.dbus_ifc,
                 "TrayIcons")
 
@@ -26,3 +29,9 @@ class DbusTrayManager:
 
     def GetName(self, xid):
         return self.ifc_methods.GetName(xid)
+
+    def Manage(self):
+        """
+        目前总返回True
+        """
+        return self.ifc_methods.Manage()

@@ -13,7 +13,8 @@ __ALL__ = [
         'DbusDisplay',
         'DbusDisplayMonitorVGA',
         'DbusDaemonLauncher',
-        'DbusSoundEffect']
+        'DbusSoundEffect',
+        'DbusTrayManager']
 
 # System Bus
 from .com_deepin_daemon_Grub2 import DbusGrub2
@@ -31,3 +32,4 @@ from .com_deepin_dde_daemon_Dock import DbusDaemonDock
 from .com_deepin_daemon_Display import DbusDisplay, DbusDisplayMonitorVGA
 from .com_deepin_dde_daemon_Launcher import DbusDaemonLauncher
 from .com_deepin_daemon_SoundEffect import DbusSoundEffect
+from .com_deepin_dde_TrayManager import DbusTrayManager

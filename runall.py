@@ -6,10 +6,10 @@ import sys
 
 from dde_control_center.system_info import SystemInfo
 from dde_daemon import DaemonDock, Keybinding, Display,\
-                       DaemonLauncher, SoundEffect
+                       DaemonLauncher, SoundEffect, TrayManager
 
 testClasses = (SystemInfo, DaemonDock, Keybinding, Display,
-               DaemonLauncher, SoundEffect)
+               DaemonLauncher, SoundEffect, TrayManager)
 
 suitelist = []
 
