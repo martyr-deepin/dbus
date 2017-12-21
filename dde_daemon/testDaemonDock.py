@@ -9,7 +9,7 @@ import multiprocessing
 from lib import DbusDaemonDock
 from signals import WaitSignalMonitorDaemonDock
 
-def mornitor():
+def monitor():
     wait = WaitSignalMonitorDaemonDock()
     wait.run()
 
@@ -64,7 +64,7 @@ class DaemonDock(unittest.TestCase):
         rt = self.dbus_DaemonDock.IsDocked(imageviewerDesktopFile)
         self.assertFalse(rt)
 
-        w = multiprocessing.Process(target = mornitor)
+        w = multiprocessing.Process(target = monitor)
         w.start()
         time.sleep(2)
         rt = self.dbus_DaemonDock.RequestDock(imageviewerDesktopFile, 0)

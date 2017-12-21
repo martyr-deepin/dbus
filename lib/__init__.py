@@ -1,4 +1,4 @@
-__ALL__ = [
+__ALL__ = ['Utils',
         'DbusGrub2',
         'DbusAppearance',
         'DbusMime',
@@ -33,3 +33,6 @@ from .com_deepin_daemon_Display import DbusDisplay, DbusDisplayMonitorVGA
 from .com_deepin_dde_daemon_Launcher import DbusDaemonLauncher
 from .com_deepin_daemon_SoundEffect import DbusSoundEffect
 from .com_deepin_dde_TrayManager import DbusTrayManager
+
+# other
+from .utils import Utils
