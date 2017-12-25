@@ -45,7 +45,7 @@ class TrayManager(unittest.TestCase):
         w = multiprocessing.Process(target = monitor)
         w.start()
         time.sleep(2)
-        os.system("deepin-music > /dev/null &")
+        os.system("deepin-music > /dev/null 2>&1 &")
         time.sleep(10)
         content = Utils.readSignalFile()
         wid = int(content.split('|')[-1])
