@@ -72,7 +72,7 @@
 - func (u *User) SetAutomaticLogin(dbusMsg dbus.DMessage, auto bool) error
 > 设置自动登陆
 
-- func (u *User) SetBackgroundFile(dbusMsg dbus.DMessage, bg string) error
+- func (u *User) SetDesktopBackgrounds(dbusMsg dbus.DMessage, bg string) error
 > None
 
 - func (u *User) SetFullName(dbusMsg dbus.DMessage, name string) error

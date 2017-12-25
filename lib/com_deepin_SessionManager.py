@@ -3,7 +3,7 @@
 
 import dbus
 
-class SessionManager:
+class DbusSessionManager:
     def __init__(self):
         self.dbus_name = "com.deepin.SessionManager"
         self.obj_path  = "/com/deepin/SessionManager"
@@ -40,6 +40,9 @@ class SessionManager:
                 self.dbus_properties_Stage)
 
     def getCurrentUid(self):
+        """
+        获取当前登录账户的uid，再通过daemon accounts获取账户名等信息
+        """
         return self.ifc_properties.Get(self.interface,
                 self.dbus_properties_CurrentUid)
 
