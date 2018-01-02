@@ -72,7 +72,7 @@ class DbusTheme:
     def __init__(self):
         self.dbus_name = 'com.deepin.daemon.Grub2'
         self.dbus_path = '/com/deepin/daemon/Grub2/Theme'
-        self.dbus_ifc  = 'com.deepin.daemon.Grub2/Theme'
+        self.dbus_ifc  = 'com.deepin.daemon.Grub2.Theme'
 
         self.system_bus = dbus.SystemBus()
         self.system_obj = self.system_bus.get_object(self.dbus_name,
@@ -86,10 +86,6 @@ class DbusTheme:
         return self.ifc_properties.Get(self.dbus_ifc,
                 "Updating")
 
-    def getBackground(self):
-        return self.ifc_properties.Get(self.dbus_ifc,
-                "Background")
-
     def getItemColor(self):
         return self.ifc_properties.Get(self.dbus_ifc,
                 "ItemColor")
@@ -97,6 +93,9 @@ class DbusTheme:
     def getSelectedItemColor(self):
         return self.ifc_properties.Get(self.dbus_ifc,
                 "SelectedItemColor")
+
+    def GetBackground(self):
+        return self.ifc_methods.GetBackground()
 
     def SetBackgroundSourceFile(self, newFilePath):
         return self.ifc_methods.SetBackgroundSourceFile(newFilePath)

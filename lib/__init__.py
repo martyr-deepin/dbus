@@ -1,5 +1,6 @@
 __ALL__ = ['Utils',
         'DbusGrub2',
+        'DbusTheme',
         'DbusAppearance',
         'DbusMime',
         'DbusAudio',
@@ -21,7 +22,7 @@ __ALL__ = ['Utils',
         'DbusSessionManager']
 
 # System Bus
-from .com_deepin_daemon_Grub2 import DbusGrub2
+from .com_deepin_daemon_Grub2 import DbusGrub2, DbusTheme
 from .com_deepin_daemon_Appearance import DbusAppearance
 from .com_deepin_daemon_Mime import DbusMime
 from .com_deepin_daemon_Audio import DbusAudio
