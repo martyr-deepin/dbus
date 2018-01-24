@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import os
+import time
 import dbus
 import json
 import unittest
@@ -150,13 +151,13 @@ class Keybinding(unittest.TestCase):
                 self.assertTrue(len(sc_item[self.shortcut_Exec]) > 0)
 
     def testLookupConflictingShortcut(self):
-        rt, string_accel = self.dbus_Keybinding.LookupConflictingShortcut(self.new_screenshot_sc)
-        self.assertTrue(rt)
+        string_accel = self.dbus_Keybinding.LookupConflictingShortcut(self.new_screenshot_sc)
         self.assertTrue('' == string_accel)
 
-        rt, string_accel = self.dbus_Keybinding.LookupConflictingShortcut(self.screenshot_sc)
-        self.assertTrue(rt)
-        self.assertFalse('' == string_accel, "string_accel: %s" % string_accel)
+        time.sleep(1)
+
+        string_accel_new = self.dbus_Keybinding.LookupConflictingShortcut(self.screenshot_sc)
+        self.assertFalse('' == string_accel_new, "string_accel: |%s|" % string_accel_new)
 
     def testModifyShortcut(self):
         info = self.dbus_Keybinding.GetShortcut(self.screenshot_Id, self.screenshot_Type)

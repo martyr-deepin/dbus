@@ -55,7 +55,8 @@ class DbusKeybinding:
 
                 control, alt, super, shift不区分大小写，Keybinding会转换成小写字母处理
         """
-        return True, self.ifc_methods.LookupConflictingShortcut(string_accel)
+        sc = self.ifc_methods.LookupConflictingShortcut(string_accel)
+        return sc
 
     def ListAllShortcuts(self):
         """
